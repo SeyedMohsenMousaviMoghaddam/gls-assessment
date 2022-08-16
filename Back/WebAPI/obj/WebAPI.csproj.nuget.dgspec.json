@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "I:\\gls-assessment\\GLSDomains\\WebAPI\\WebAPI.csproj": {}
+    "I:\\GLS\\gls-assessment\\Back\\WebAPI\\WebAPI.csproj": {}
   },
   "projects": {
-    "I:\\gls-assessment\\GLSDomains\\Domain\\DAL.csproj": {
+    "I:\\GLS\\gls-assessment\\Back\\Domain\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\gls-assessment\\GLSDomains\\Domain\\DAL.csproj",
+        "projectUniqueName": "I:\\GLS\\gls-assessment\\Back\\Domain\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "I:\\gls-assessment\\GLSDomains\\Domain\\DAL.csproj",
+        "projectPath": "I:\\GLS\\gls-assessment\\Back\\Domain\\DAL.csproj",
         "packagesPath": "C:\\Users\\Fateme\\.nuget\\packages\\",
-        "outputPath": "I:\\gls-assessment\\GLSDomains\\Domain\\obj\\",
+        "outputPath": "I:\\GLS\\gls-assessment\\Back\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.1\\.NET Core Desktop Libraries\\Offline Packages",
@@ -107,14 +107,14 @@
         }
       }
     },
-    "I:\\gls-assessment\\GLSDomains\\WebAPI\\WebAPI.csproj": {
+    "I:\\GLS\\gls-assessment\\Back\\WebAPI\\WebAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\gls-assessment\\GLSDomains\\WebAPI\\WebAPI.csproj",
+        "projectUniqueName": "I:\\GLS\\gls-assessment\\Back\\WebAPI\\WebAPI.csproj",
         "projectName": "WebAPI",
-        "projectPath": "I:\\gls-assessment\\GLSDomains\\WebAPI\\WebAPI.csproj",
+        "projectPath": "I:\\GLS\\gls-assessment\\Back\\WebAPI\\WebAPI.csproj",
         "packagesPath": "C:\\Users\\Fateme\\.nuget\\packages\\",
-        "outputPath": "I:\\gls-assessment\\GLSDomains\\WebAPI\\obj\\",
+        "outputPath": "I:\\GLS\\gls-assessment\\Back\\WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.1\\.NET Core Desktop Libraries\\Offline Packages",
@@ -142,8 +142,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "I:\\gls-assessment\\GLSDomains\\Domain\\DAL.csproj": {
-                "projectPath": "I:\\gls-assessment\\GLSDomains\\Domain\\DAL.csproj"
+              "I:\\GLS\\gls-assessment\\Back\\Domain\\DAL.csproj": {
+                "projectPath": "I:\\GLS\\gls-assessment\\Back\\Domain\\DAL.csproj"
               }
             }
           }

@@ -1223,11 +1223,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "I:\\gls-assessment\\GLSDomains\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "I:\\GLS\\gls-assessment\\Back\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "I:\\gls-assessment\\GLSDomains\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "I:\\GLS\\gls-assessment\\Back\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\Fateme\\.nuget\\packages\\",
-      "outputPath": "I:\\gls-assessment\\GLSDomains\\WebApplication1\\obj\\",
+      "outputPath": "I:\\GLS\\gls-assessment\\Back\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\DevExpress 21.1\\.NET Core Desktop Libraries\\Offline Packages",

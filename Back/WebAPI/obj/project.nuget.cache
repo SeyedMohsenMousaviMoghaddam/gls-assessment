@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "mjqBy/m41fRYFlwW38bHlFrXWpy4pkIUaabyFjHXiga1sR63uZy9/1Xnyh0QD+hVL9YvMVQpsSAMMtXP+cwJ/g==",
+  "dgSpecHash": "RPXV48N4O34QGUjFZuG0/xR6heMaXWJHShaL3f70nrHw0GNtIFE7kfBgJPou85Dg9d8NzYrjq/CJBPr/U1L9cg==",
   "success": true,
-  "projectFilePath": "I:\\gls-assessment\\GLSDomains\\WebAPI\\WebAPI.csproj",
+  "projectFilePath": "I:\\GLS\\gls-assessment\\Back\\WebAPI\\WebAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Fateme\\.nuget\\packages\\autofac\\6.4.0\\autofac.6.4.0.nupkg.sha512",
     "C:\\Users\\Fateme\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",

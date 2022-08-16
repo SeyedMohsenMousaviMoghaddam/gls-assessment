@@ -1372,3 +1372,62 @@ Error Number:515,State:2,Class:16
 2022-08-16 11:15:57.441 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/swagger/index.html - - - 200 - text/html;charset=utf-8 926.1452ms
 2022-08-16 11:15:57.928 +04:30 [Information] Request starting HTTP/2 GET https://localhost:7200/swagger/v1/swagger.json - -
 2022-08-16 11:15:58.354 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 426.0029ms
+2022-08-16 11:52:26.610 +04:30 [Information] Entity Framework Core "6.0.8" initialized '"GLSTablesDataBaseContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.8"' with options: "MigrationsAssembly=DAL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null "
+2022-08-16 11:52:29.150 +04:30 [Information] Executed DbCommand ("66"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-08-16 11:52:29.234 +04:30 [Information] Executed DbCommand ("67"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0"
+2022-08-16 11:52:29.807 +04:30 [Information] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Role] AS [r]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-08-16 11:52:29.823 +04:30 [Information] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-08-16 11:52:29.833 +04:30 [Information] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-08-16 11:52:29.834 +04:30 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-08-16 11:52:30.067 +04:30 [Information] Executed DbCommand ("11"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);"
+2022-08-16 11:52:30.070 +04:30 [Information] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-08-16 11:52:30.070 +04:30 [Information] Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-08-16 11:52:30.074 +04:30 [Information] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+2022-08-16 11:52:30.176 +04:30 [Information] No migrations were applied. The database is already up to date.
+2022-08-16 11:52:30.686 +04:30 [Information] User profile is available. Using '"C:\Users\Fateme\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-16 11:52:31.492 +04:30 [Information] Now listening on: "https://localhost:7200"
+2022-08-16 11:52:31.492 +04:30 [Information] Now listening on: "http://localhost:5200"
+2022-08-16 11:52:31.499 +04:30 [Information] Application started. Press Ctrl+C to shut down.
+2022-08-16 11:52:31.499 +04:30 [Information] Hosting environment: "Development"
+2022-08-16 11:52:31.499 +04:30 [Information] Content root path: "I:\GLS\gls-assessment\Back\WebAPI\"
+2022-08-16 11:52:33.888 +04:30 [Information] Request starting HTTP/2 GET https://localhost:7200/swagger/index.html - -
+2022-08-16 11:52:34.639 +04:30 [Information] Request starting HTTP/2 GET https://localhost:7200/_framework/aspnetcore-browser-refresh.js - -
+2022-08-16 11:52:34.655 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/swagger/index.html - - - 200 - text/html;charset=utf-8 775.2586ms
+2022-08-16 11:52:34.655 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/_framework/aspnetcore-browser-refresh.js - - - 200 11940 application/javascript;+charset=utf-8 13.8396ms
+2022-08-16 11:52:35.159 +04:30 [Information] Request starting HTTP/2 GET https://localhost:7200/swagger/v1/swagger.json - -
+2022-08-16 11:52:35.682 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 523.4204ms
