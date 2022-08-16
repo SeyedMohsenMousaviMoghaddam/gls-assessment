@@ -1,0 +1,66 @@
+2022-08-15 02:00:48 [Information] 
+2022-08-15 02:00:49 [Information] 
+2022-08-15 02:00:49 [Information] 
+2022-08-15 02:00:49 [Information] 
+2022-08-15 02:00:49 [Information] 
+2022-08-15 02:00:49 [Information] 
+2022-08-15 02:00:52 [Information] 
+2022-08-15 02:00:52 [Information] 
+2022-08-15 02:00:53 [Information] 
+2022-08-15 02:00:53 [Information] 
+2022-08-15 02:00:53 [Information] 
+2022-08-15 02:00:53 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:00:58 [Information] 
+2022-08-15 02:02:00 [Information] 
+2022-08-15 02:02:01 [Information] 
+2022-08-15 02:02:01 [Information] 
+2022-08-15 02:02:01 [Information] 
+2022-08-15 02:02:01 [Information] 
+2022-08-15 02:02:01 [Information] 
+2022-08-15 02:02:02 [Information] 
+2022-08-15 02:02:03 [Information] 
+2022-08-15 02:02:03 [Information] 
+2022-08-15 02:02:03 [Information] 
+2022-08-15 02:02:03 [Information] 
+2022-08-15 02:02:04 [Information] 
+2022-08-15 02:02:07 [Information] 
+2022-08-15 02:02:07 [Information] 
+2022-08-15 02:02:07 [Information] 
+2022-08-15 02:02:07 [Information] 
+2022-08-15 02:02:07 [Warning] 
+2022-08-15 02:02:07 [Information] 
+2022-08-15 02:02:07 [Information] 
+2022-08-15 02:02:08 [Information] 
+2022-08-15 02:02:08 [Information] 
+2022-08-15 02:02:08 [Information] 
+2022-08-15 02:04:40.854 +04:30 [Information] User profile is available. Using '"C:\Users\Fateme\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-08-15 02:04:41.538 +04:30 [Information] Now listening on: "https://localhost:7200"
+2022-08-15 02:04:41.538 +04:30 [Information] Now listening on: "http://localhost:5200"
+2022-08-15 02:04:41.544 +04:30 [Information] Application started. Press Ctrl+C to shut down.
+2022-08-15 02:04:41.544 +04:30 [Information] Hosting environment: "Development"
+2022-08-15 02:04:41.544 +04:30 [Information] Content root path: "I:\gls-assessment\GLSDomains\WebAPI\"
+2022-08-15 02:04:43.280 +04:30 [Information] Request starting HTTP/2 GET https://localhost:7200/swagger/index.html - -
+2022-08-15 02:04:43.823 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/swagger/index.html - - - 200 - text/html;charset=utf-8 551.2273ms
+2022-08-15 02:04:43.823 +04:30 [Information] Request starting HTTP/2 GET https://localhost:7200/_framework/aspnetcore-browser-refresh.js - -
+2022-08-15 02:04:43.842 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/_framework/aspnetcore-browser-refresh.js - - - 200 11940 application/javascript;+charset=utf-8 19.2754ms
+2022-08-15 02:04:44.201 +04:30 [Information] Request starting HTTP/2 GET https://localhost:7200/swagger/v1/swagger.json - -
+2022-08-15 02:04:44.481 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 279.1922ms
+2022-08-15 02:04:50.801 +04:30 [Information] Request starting HTTP/2 GET https://localhost:7200/WeatherForecast - -
+2022-08-15 02:04:50.842 +04:30 [Information] Executing endpoint '"WebAPI.Controllers.WeatherForecastController.Get (WebAPI)"'
+2022-08-15 02:04:50.866 +04:30 [Information] Route matched with "{action = \"Get\", controller = \"WeatherForecast\"}". Executing controller action with signature "System.Collections.Generic.IEnumerable`1[WebAPI.WeatherForecast] Get()" on controller "WebAPI.Controllers.WeatherForecastController" ("WebAPI").
+2022-08-15 02:04:51.022 +04:30 [Information] Executing action method "WebAPI.Controllers.WeatherForecastController.Get (WebAPI)" - Validation state: Valid
+2022-08-15 02:04:51.023 +04:30 [Warning]  ==> GetWeatherForecast
+2022-08-15 02:04:51.036 +04:30 [Information] Executed action method "WebAPI.Controllers.WeatherForecastController.Get (WebAPI)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 6.2811ms.
+2022-08-15 02:04:51.049 +04:30 [Information] Executing "ObjectResult", writing value of type '"WebAPI.WeatherForecast[]"'.
+2022-08-15 02:04:51.071 +04:30 [Information] Executed action "WebAPI.Controllers.WeatherForecastController.Get (WebAPI)" in 194.9905ms
+2022-08-15 02:04:51.072 +04:30 [Information] Executed endpoint '"WebAPI.Controllers.WeatherForecastController.Get (WebAPI)"'
+2022-08-15 02:04:51.072 +04:30 [Information] Request finished HTTP/2 GET https://localhost:7200/WeatherForecast - - - 200 - application/json;+charset=utf-8 272.0061ms

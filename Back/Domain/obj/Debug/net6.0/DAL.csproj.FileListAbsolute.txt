@@ -1,0 +1,14 @@
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+I:\gls-assessment\GLSDomains\Domain\bin\Debug\net6.0\DAL.deps.json
+I:\gls-assessment\GLSDomains\Domain\bin\Debug\net6.0\DAL.runtimeconfig.json
+I:\gls-assessment\GLSDomains\Domain\bin\Debug\net6.0\DAL.dll
+I:\gls-assessment\GLSDomains\Domain\bin\Debug\net6.0\ref\DAL.dll
+I:\gls-assessment\GLSDomains\Domain\bin\Debug\net6.0\DAL.pdb
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.dll
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\ref\DAL.dll
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.pdb
+I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.genruntimeconfig.cache
