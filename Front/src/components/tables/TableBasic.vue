@@ -3,6 +3,7 @@
     <q-card-section>
       <div class="text-h6 text-grey-8">
         Basic
+        <q-btn to="/Profile" label="New User" class="float-right text-capitalize text-indigo-8 shadow-3" icon="person"/>
       </div>
     </q-card-section>
     <q-card-section class="q-pa-none">
@@ -13,6 +14,12 @@
         row-key="name"
         :filter="filter"
       >
+              <template v-slot:body-cell-Action="props">
+          <q-td :props="props">
+            <q-btn icon="edit" size="sm" flat dense/>
+            <q-btn icon="delete" size="sm" class="q-ml-sm" flat dense/>
+          </q-td>
+        </template>
         <template v-slot:top-right>
           <q-input v-if="show_filter" filled borderless dense debounce="300" v-model="filter" placeholder="Search">
             <template v-slot:append>
@@ -161,7 +168,8 @@ const columns = [
     field: 'iron',
     sortable: true,
     sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
-  }
+  },
+  {name: 'Action', label: '', field: 'Action', sortable: false, align: 'center'}
 ];
 
 export default defineComponent({
