@@ -19,14 +19,17 @@ namespace DAL.Repositories
 
         public async Task<T> Add(T entity)
         {
-            return (await _context.Set<T>().AddAsync(entity)).Entity;
+            var newItem = (await _context.Set<T>().AddAsync(entity)).Entity;
+            var id = (await _context.SaveChangesAsync());
+            return newItem;
 
         }
 
         public async Task AddRange(IEnumerable<T> entities)
         {
             await _context.Set<T>().AddRangeAsync(entities);
-        }
+            await _context.SaveChangesAsync();
+       }
 
         //public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
         //{
@@ -46,11 +49,13 @@ namespace DAL.Repositories
         public async Task Remove(T entity)
         {
             _context.Set<T>().Remove(entity);
+            await _context.SaveChangesAsync();
         }
 
         public async Task RemoveRange(IEnumerable<T> entities)
         {
             _context.Set<T>().RemoveRange(entities);
+            await _context.SaveChangesAsync();
         }
     }
 }

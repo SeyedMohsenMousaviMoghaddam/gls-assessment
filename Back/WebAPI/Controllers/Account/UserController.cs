@@ -22,11 +22,11 @@ namespace WebAPI.Controllers.Common.Account
 
         #region User
 
-        //[HttpPost]
-        //public async Task<ServerResult> GetAll([FromBody] DatatableRequest model)
-        //{
-        //    return await _service.Get(model);
-        //}
+        [HttpPost]
+        public async Task<ServerResult> GetAll([FromBody] DatatableRequestVM model)
+        {
+            return await _service.Get(model);
+        }
 
         [HttpGet("{id}")]
         public async Task<ServerResult> GetById(int id)

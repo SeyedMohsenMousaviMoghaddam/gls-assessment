@@ -2,22 +2,23 @@
   <q-card>
     <q-card-section>
       <div class="text-h6 text-grey-8">
-        Basic
-        <q-btn to="/Profile" label="New User" class="float-right text-capitalize text-indigo-8 shadow-3" icon="person"/>
+        {{ title }} List
+        <q-btn v-if="addbtn" :to="createlink" :label="'Add '+title" class="float-right text-capitalize text-indigo-8 shadow-3" icon="person"/>
       </div>
     </q-card-section>
     <q-card-section class="q-pa-none">
       <q-table
-        title="Treats"
-        :rows="data"
+        title=""
+        :rows="dataobject"
         :columns="columns"
-        row-key="name"
+        row-key="id"
         :filter="filter"
       >
               <template v-slot:body-cell-Action="props">
           <q-td :props="props">
-            <q-btn icon="edit" size="sm" flat dense/>
-            <q-btn icon="delete" size="sm" class="q-ml-sm" flat dense/>
+            <q-btn :to="createlink+'/'+props.row.id" v-if="editbtn" icon="edit" size="sm" flat dense/>
+            <q-btn  v-if="deletebtn"  @click="confirm(props.row)"  icon="delete" size="sm" class="q-ml-sm" flat dense/>
+            <q-btn :to="infolink+'/'+props.row.id" v-if="infobtn" icon="info" size="sm" flat dense/>
           </q-td>
         </template>
         <template v-slot:top-right>
@@ -32,159 +33,89 @@
       </q-table>
     </q-card-section>
   </q-card>
+ 
 </template>
 
 <script>
 import {defineComponent, ref} from 'vue'
+import { useQuasar } from 'quasar'
+import http from "../../http-common";
 
 
-const data = [
-  {
-    name: 'Frozen Yogurt',
-    calories: 159,
-    fat: 6.0,
-    carbs: 24,
-    protein: 4.0,
-    sodium: 87,
-    calcium: '14%',
-    iron: '1%'
-  },
-  {
-    name: 'Ice cream sandwich',
-    calories: 237,
-    fat: 9.0,
-    carbs: 37,
-    protein: 4.3,
-    sodium: 129,
-    calcium: '8%',
-    iron: '1%'
-  },
-  {
-    name: 'Eclair',
-    calories: 262,
-    fat: 16.0,
-    carbs: 23,
-    protein: 6.0,
-    sodium: 337,
-    calcium: '6%',
-    iron: '7%'
-  },
-  {
-    name: 'Cupcake',
-    calories: 305,
-    fat: 3.7,
-    carbs: 67,
-    protein: 4.3,
-    sodium: 413,
-    calcium: '3%',
-    iron: '8%'
-  },
-  {
-    name: 'Gingerbread',
-    calories: 356,
-    fat: 16.0,
-    carbs: 49,
-    protein: 3.9,
-    sodium: 327,
-    calcium: '7%',
-    iron: '16%'
-  },
-  {
-    name: 'Jelly bean',
-    calories: 375,
-    fat: 0.0,
-    carbs: 94,
-    protein: 0.0,
-    sodium: 50,
-    calcium: '0%',
-    iron: '0%'
-  },
-  {
-    name: 'Lollipop',
-    calories: 392,
-    fat: 0.2,
-    carbs: 98,
-    protein: 0,
-    sodium: 38,
-    calcium: '0%',
-    iron: '2%'
-  },
-  {
-    name: 'Honeycomb',
-    calories: 408,
-    fat: 3.2,
-    carbs: 87,
-    protein: 6.5,
-    sodium: 562,
-    calcium: '0%',
-    iron: '45%'
-  },
-  {
-    name: 'Donut',
-    calories: 452,
-    fat: 25.0,
-    carbs: 51,
-    protein: 4.9,
-    sodium: 326,
-    calcium: '2%',
-    iron: '22%'
-  },
-  {
-    name: 'KitKat',
-    calories: 518,
-    fat: 26.0,
-    carbs: 65,
-    protein: 7,
-    sodium: 54,
-    calcium: '12%',
-    iron: '6%'
-  }
-];
-const columns = [
-  {
-    name: 'name',
-    required: true,
-    label: 'Dessert (100g serving)',
-    align: 'left',
-    field: row => row.name,
-    format: val => `${val}`,
-    sortable: true
-  },
-  {name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true},
-  {name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true},
-  {name: 'carbs', label: 'Carbs (g)', field: 'carbs'},
-  {name: 'protein', label: 'Protein (g)', field: 'protein'},
-  {name: 'sodium', label: 'Sodium (mg)', field: 'sodium'},
-  {
-    name: 'calcium',
-    label: 'Calcium (%)',
-    field: 'calcium',
-    sortable: true,
-    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
-  },
-  {
-    name: 'iron',
-    label: 'Iron (%)',
-    field: 'iron',
-    sortable: true,
-    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10)
-  },
-  {name: 'Action', label: '', field: 'Action', sortable: false, align: 'center'}
-];
 
-export default defineComponent({
+export default {
+  props: {
+    addbtn:Boolean,
+    editbtn:Boolean,
+    deletebtn:Boolean,
+    infobtn:Boolean,
+    title: String,
+    createlink: String,
+    infolink: String,
+    dataobject: {
+        type: Object,
+        default: () => ({})
+    },
+    columns: {
+        type: Object,
+        default: () => ({})
+    }
+  },
   name: "TableBasic",
-  setup() {
-    const show_filter = ref(false)
+  setup () {
+    const $q = useQuasar()
+    function deleteItem(id) {
+      return http.delete(`/User/Delete/${id}`);
+    }
+    function alert () {
+      $q.dialog({
+        dark: true,
+        title: 'Alert',
+        message: 'Item deleted successfully.'
+      }).onOk(() => {
+        // console.log('OK')
+      }).onCancel(() => {
+        // console.log('Cancel')
+      }).onDismiss(() => {
+        // console.log('I am triggered on both OK and Cancel')
+      })
+    }
+    function confirm (row) {
+      $q.dialog({
+        dark: true,
+        title: 'Confirm',
+        message: 'Are you sure you want to permanently delete this item?',
+        cancel: true,
+        persistent: true
+      }).onOk(() => {
+         deleteItem(row.id)
+            .then(response => {
+              alert();
+      })
+            .catch(e => {
+                console.log(e);
+        });
+      
+         
+      }).onOk(() => {
+        // console.log('>>>> second OK catcher')
+      }).onCancel(() => {
+         console.log('>>>> Cancel')
+      }).onDismiss(() => {
+        // console.log('I am triggered on both OK and Cancel')
+      })
+    }
+    return {alert, confirm }
 
+  },
+  data() {  
+    const show_filter = ref(false);
     return {
       filter: ref(''),
-      show_filter,
-      data,
-      columns
-    }
+      show_filter      
+    };
   }
-})
+}
 </script>
 
 <style scoped>

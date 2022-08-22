@@ -42,11 +42,7 @@ namespace WebAPI.Controllers.Account
         {
             return new ServerResult() { Success = await ValidateJwtToken(token) > 0 };
         }
-        [HttpPost]
-        public async Task<ServerResult> Save([FromBody] UserVM item)
-        {
-            return await _service.Save(item,0);
-        }
+
         [HttpPost]
         //[ApiExplorerSettings(IgnoreApi = true)]
         public async Task<ServerResult> Login([FromBody] LoginInputModel model)

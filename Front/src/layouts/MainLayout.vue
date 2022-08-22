@@ -60,15 +60,22 @@
             <q-item-label>Dashboard</q-item-label>
           </q-item-section>
         </q-item>
-        <q-item to="/Tables" active-class="q-item-no-link-highlighting">
+        <q-item to="/UserList" active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="table_chart"/>
           </q-item-section>
           <q-item-section>
-            <q-item-label>Tables</q-item-label>
+            <q-item-label>User List</q-item-label>
           </q-item-section>
         </q-item>
-
+        <q-item to="/RoleList" active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="table_chart"/>
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Role List</q-item-label>
+          </q-item-section>
+        </q-item>
       </q-list>
     </q-drawer>
 

@@ -36,7 +36,7 @@
               />
 
               <div>
-                <q-btn label="Login" to="/" type="button" color="primary"/>
+                <q-btn label="Login"  @click="login" type="button" color="primary"/>
               </div>
             </q-form>
           </q-card-section>
@@ -49,15 +49,38 @@
 <script>
 import {defineComponent} from 'vue'
 import {ref} from 'vue'
+import UserDataService from '../services/UserDataService';
 
-export default defineComponent({
-  setup() {
+export default {
+  name: "Login",
+  data() {
     return {
+      username: ref(''),
+      password: ref('')
+    };
+  },  
+  methods : {
+    login() {
+      var data = {
+        username: this.username,
+        password: this.password
+      };
+      UserDataService.loginUser(data)
+        .then(response => {
+          console.log(response.data);
+          this.refreshList();
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+    /*return {
       username: ref('Pratik'),
       password: ref('12345')
-    }
+    }*/
   },
-})
+}
+
 </script>
 
 <style>

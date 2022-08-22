@@ -51,42 +51,41 @@ namespace DAL.Service.Account
             return new ServerResult { Success = false, Message = "نام کاربری یا رمزعبور اشتباه است." };
         }
 
+        public async Task<ServerResult> Get(DatatableRequestVM model)
+        {
+            try
+            {
+                //        using (var con = await Connection.GetOpenConnection(true))
+                //        {
+                //            var count = 0;
+                //            var parameters = new DynamicParameters();
+                //            parameters.Add("@PageNumber", model.PageNumber, DbType.Int32);
+                //            parameters.Add("@RowNumber", model.PageSize, DbType.Int32);
+                //            parameters.Add("@Filter", model.GetWhereClause<UserVM>(), DbType.String);
+                //            parameters.Add("@TotalRecord", count, DbType.Int32, ParameterDirection.InputOutput);
+                //            if (!string.IsNullOrEmpty(model.SortField))
+                //                parameters.Add("@OrderBy", model.SortField, DbType.String);
 
-        //
-        //public async Task<ServerResult> Get(DatatableRequest model)
-        //{
-        //    try
-        //    {
-        //        using (var con = await Connection.GetOpenConnection(true))
-        //        {
-        //            var count = 0;
-        //            var parameters = new DynamicParameters();
-        //            parameters.Add("@PageNumber", model.PageNumber, DbType.Int32);
-        //            parameters.Add("@RowNumber", model.PageSize, DbType.Int32);
-        //            parameters.Add("@Filter", model.GetWhereClause<UserVM>(), DbType.String);
-        //            parameters.Add("@TotalRecord", count, DbType.Int32, ParameterDirection.InputOutput);
-        //            if (!string.IsNullOrEmpty(model.SortField))
-        //                parameters.Add("@OrderBy", model.SortField, DbType.String);
+                //            var output = (await con.QueryAsync<UserVM>("Get_User", parameters, commandType: CommandType.StoredProcedure)).ToList();
+                //            count = parameters.Get<int>("@TotalRecord");
 
-        //            var output = (await con.QueryAsync<UserVM>("Get_User", parameters, commandType: CommandType.StoredProcedure)).ToList();
-        //            count = parameters.Get<int>("@TotalRecord");
+                //            var dt = new DataTableResult
+                //            {
+                //                CurrentPageNumber = model.PageNumber,
+                //                Items = output,
+                //                PageSize = model.PageSize,
+                //                TotalRecords = count
+                //            };
 
-        //            var dt = new DataTableResult
-        //            {
-        //                CurrentPageNumber = model.PageNumber,
-        //                Items = output,
-        //                PageSize = model.PageSize,
-        //                TotalRecords = count
-        //            };
-
-        //            return new ServerResult { Success = true, Data = dt };
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return e.RaiseError();
-        //    }
-        //}
+                //            return new ServerResult { Success = true, Data = dt };
+                //        }
+                return new ServerResult { Success = true, Data = await _userRepository.GetAll() };
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
         public async Task<ServerResult> GetById(int id)
         {
@@ -249,6 +248,7 @@ namespace DAL.Service.Account
             try
             {
                 var user = _mapper.Map<User>(item);
+                user.Password = Security.HashSHA1(user.Password + user.UserName);
                 return new ServerResult { Success = true, Data = await _userRepository.Add(user) };
 
             }

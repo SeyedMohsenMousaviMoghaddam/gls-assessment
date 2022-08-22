@@ -8,7 +8,7 @@ namespace DAL.IService.Account
         Task<ServerResult> GetByUserName(string username);
         Task<ServerResult> LoginUser(string userName, string password, bool customerAgentLogin = false);
 
-        //Task<ServerResult> Get(DatatableRequest model);
+        Task<ServerResult> Get(DatatableRequestVM model);
         Task<ServerResult> GetById(int id);
         //Task<ServerResult> GetLookup(LookupDTO item);
         Task<ServerResult> Save(UserVM item, int userId);

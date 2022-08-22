@@ -15,13 +15,13 @@ namespace WebAPI.Controllers.Common.Account
 			_service = roleService;
 		}
 
-		//[HttpPost]
-		//public async Task<ServerResult> GetAll([FromBody]DatatableRequest model)
-		//{
-		//	return await _service.Get(model);
-		//}
+        [HttpPost]
+        public async Task<ServerResult> GetAll([FromBody] DatatableRequestVM model)
+        {
+            return await _service.Get(model);
+        }
 
-		[HttpGet("{id}")]
+        [HttpGet("{id}")]
 		public async Task<ServerResult> GetById(int id)
 		{
 			return await _service.GetById(id);

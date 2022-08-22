@@ -12,3 +12,17 @@ I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.dll
 I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\ref\DAL.dll
 I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.pdb
 I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\DAL.genruntimeconfig.cache
+I:\GLS\gls-assessment\Back\Domain\bin\Debug\net6.0\DAL.deps.json
+I:\GLS\gls-assessment\Back\Domain\bin\Debug\net6.0\DAL.runtimeconfig.json
+I:\GLS\gls-assessment\Back\Domain\bin\Debug\net6.0\DAL.dll
+I:\GLS\gls-assessment\Back\Domain\bin\Debug\net6.0\ref\DAL.dll
+I:\GLS\gls-assessment\Back\Domain\bin\Debug\net6.0\DAL.pdb
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\DAL.csproj.AssemblyReference.cache
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\DAL.GeneratedMSBuildEditorConfig.editorconfig
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\DAL.AssemblyInfoInputs.cache
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\DAL.AssemblyInfo.cs
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\DAL.csproj.CoreCompileInputs.cache
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\DAL.dll
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\ref\DAL.dll
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\DAL.pdb
+I:\GLS\gls-assessment\Back\Domain\obj\Debug\net6.0\DAL.genruntimeconfig.cache

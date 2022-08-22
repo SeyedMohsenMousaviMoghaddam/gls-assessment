@@ -18,41 +18,17 @@ namespace DAL.Service.Account
             _roleRepository = roleRepository;
             _mapper = mapper;
         }
-        //public async Task<ServerResult> Get(DatatableRequest model)
-        //{
-        //    using (var con = await Connection.GetOpenConnection(true))
-        //    {
-        //        try
-        //        {
-        //            int count = 0;
-        //            var parameters = new DynamicParameters();
-        //            parameters.Add("@PageNumber", model.PageNumber, DbType.Int32);
-        //            parameters.Add("@RowNumber", model.PageSize, DbType.Int32);
-        //            parameters.Add("@Filter", model.GetWhereClause<RoleVM>(), DbType.String);
-        //            parameters.Add("@TotalRecord", count, DbType.Int32, ParameterDirection.InputOutput);
-
-        //            if (!string.IsNullOrEmpty(model.SortField))
-        //                parameters.Add("@OrderBy", model.SortField, DbType.String);
-
-        //            var output = (await con.QueryAsync<RoleVM>("Get_Role", parameters, commandType: CommandType.StoredProcedure))
-        //                .ToList();
-        //            count = parameters.Get<int>("@TotalRecord");
-        //            var dt = new DataTableResult
-        //            {
-        //                CurrentPageNumber = model.PageNumber,
-        //                Items = output,
-        //                PageSize = model.PageSize,
-        //                TotalRecords = count
-        //            };
-
-        //            return new ServerResult { Success = true, Data = dt };
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            return e.RaiseError();
-        //        }
-        //    }
-        //}
+        public async Task<ServerResult> Get(DatatableRequestVM model)
+        {
+            try
+            {
+                return new ServerResult { Success = true, Data = await _roleRepository.GetAll() };
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
 
         public async Task<ServerResult> GetById(int id)
         {
