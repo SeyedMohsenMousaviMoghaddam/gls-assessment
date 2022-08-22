@@ -86,7 +86,17 @@ namespace DAL.Service.Account
                 throw e;
             }
         }
-
+        public async Task<ServerResult> GetLog(int userId)
+        {
+            try
+            {
+                return new ServerResult { Success = true, Data = await _userLoginLogRepository.GetLog(userId) };
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         public async Task<ServerResult> GetById(int id)
         {
             var result = new ServerResult();

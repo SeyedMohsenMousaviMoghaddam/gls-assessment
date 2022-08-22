@@ -19,7 +19,7 @@
                  @click="$q.fullscreen.toggle()"
                  v-if="$q.screen.gt.sm">
           </q-btn>
-          <q-btn round dense flat color="white" icon="fab fa-github" type="a" href="https://github.com/mohsens3mk/gls-assessment" target="_blank">
+          <q-btn round dense flat color="white" icon="fab fa-github" type="a" href="https://github.com/SeyedMohsenMousaviMoghaddam/gls-assessment" target="_blank">
           </q-btn>
           <q-btn round dense flat color="white" icon="notifications">
             <q-badge color="red" text-color="white" floating>

@@ -4,8 +4,8 @@ class UserDataService {
   getAll(data) {
     return http.post("/User/GetAll",data);
   }
-  getAllLog(data) {
-    return http.post("/User/GetAll",data);
+  getAllLog(id) {
+    return http.get(`/User/GetAllLog/${id}`);
   }
   get(id) {
     return http.get(`/User/GetById/${id}`);

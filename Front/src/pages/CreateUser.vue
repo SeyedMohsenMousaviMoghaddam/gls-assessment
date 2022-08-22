@@ -12,44 +12,30 @@
 
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.user_name" label="User Name"/>
+                  <q-input dark color="white" dense v-model="user_details.userName" label="User Name & Email Address"/>
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.email" label="Email Address"/>
+                  <q-input dark color="white" dense v-model="user_details.mobileNumber" label="MobileNumber"/>
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.first_name" label="First Name"/>
+                  <q-input dark color="white" dense v-model="user_details.name" label="Name"/>
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.last_name" label="Last Name"/>
+                  <q-input dark color="white" dense v-model="user_details.stateCode" label="StateCode"/>
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" autogrow dense v-model="user_details.address" label="Address"/>
+                  <q-input dark color="white" autogrow dense v-model="user_details.description" label="Description"/>
                 </q-item-section>
               </q-item>
-              <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.city" label="City"/>
-                </q-item-section>
-              </q-item>
-              <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.post_code" label="Postal Code"/>
-                </q-item-section>
-              </q-item>
-              <q-item class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <q-item-section>
-                  <q-input dark color="white" type="textarea" dense v-model="user_details.about" label="About"/>
-                </q-item-section>
-              </q-item>
+
             </q-list>
           </q-card-section>
           <q-card-actions align="right">

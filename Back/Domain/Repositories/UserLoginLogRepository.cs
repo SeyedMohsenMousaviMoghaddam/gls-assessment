@@ -11,5 +11,9 @@ namespace DAL.Repositories
         public UserLoginLogRepository(GLSTablesDataBaseContext context) : base(context)
         {
         }
+        public async Task<IEnumerable<UserLoginLog>> GetLog(int userId)
+        {
+            return _context.Set<UserLoginLog>().Where(p => p.UserId == userId);
+        }
     }
 }

@@ -34,6 +34,11 @@ namespace WebAPI.Controllers.Common.Account
             return await _service.GetById(id);
         }
 
+        [HttpGet("{id}")]
+        public async Task<ServerResult> GetAllLog(int id)
+        {
+            return await _service.GetLog(id);
+        }
         //[HttpPost]
         //public async Task<ServerResult> GetLookup([FromBody] LookupDTO item)
         //{

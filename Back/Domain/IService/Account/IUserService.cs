@@ -18,5 +18,6 @@ namespace DAL.IService.Account
         Task<ServerResult> GetRoleByUserId(int id);
         Task<ServerResult> AddRoleForUser(int roleId, int userId);
         Task<ServerResult> RemoveRoleFromUser(int roleId, int userId);
+        Task<ServerResult> GetLog(int userId);
     }
 }

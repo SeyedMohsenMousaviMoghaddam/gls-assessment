@@ -27,7 +27,7 @@ export default {
     required: true,
     label: '#',
     align: 'left',
-    field: row => row.name,
+    field: row => row.id,
     format: val => `${val}`,
     sortable: true
   },
@@ -51,8 +51,7 @@ export default {
   },
   methods: {
     retrieveUsers() {
-      var data = { };
-      UserDataService.getAllLog(data)
+      UserDataService.getAllLog(this.id)
         .then(response => {
           this.users = response.data.data;
         })
