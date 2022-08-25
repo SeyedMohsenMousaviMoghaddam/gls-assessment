@@ -32,10 +32,7 @@ namespace DAL.Service.Account
 
         public async Task<ServerResult> GetById(int id)
         {
-
-            var result = new ServerResult();
-            result.Data = await _roleRepository.GetById(id); 
-            return result;
+            return new ServerResult { Success = true, Data = await _roleRepository.GetById(id) };
         }
 
         //public async Task<ServerResult> GetLookup(LookupDTO item)

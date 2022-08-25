@@ -30,7 +30,11 @@ namespace DAL.Repositories
             await _context.Set<T>().AddRangeAsync(entities);
             await _context.SaveChangesAsync();
        }
-
+        public async Task<int> Update(T item)
+        {
+            _context.Update(item);
+            return await _context.SaveChangesAsync();
+        }
         //public IEnumerable<T> Find(Expression<Func<T, bool>> expression)
         //{
         //    return _context.Set<T>().Where(expression);

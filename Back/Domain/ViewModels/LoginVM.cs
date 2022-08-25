@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DAL.ViewModels
 {
-    public class LoginInputModel
+    public class LoginVM
     {
         [Required]
         public string Username { get; set; }

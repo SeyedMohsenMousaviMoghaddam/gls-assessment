@@ -31,7 +31,7 @@ namespace WebAPI.Controllers.Account
         }
 
         [HttpPost]
-        public async Task<ServerResult> LoginUser([FromBody] LoginInputModel model)
+        public async Task<ServerResult> LoginUser([FromBody] LoginVM model)
         {
             return await _service.LoginUser(model.Username, model.Password);
         }
@@ -45,7 +45,7 @@ namespace WebAPI.Controllers.Account
 
         [HttpPost]
         //[ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<ServerResult> Login([FromBody] LoginInputModel model)
+        public async Task<ServerResult> Login([FromBody] LoginVM model)
         {
             var userResult = await _service.LoginUser(model.Username, model.Password);
             if (!userResult.Success)
@@ -82,7 +82,7 @@ namespace WebAPI.Controllers.Account
         }
 
         [HttpPost]
-        public async Task<IActionResult> RefreshToken([FromBody]RefreshViewModel model)
+        public async Task<IActionResult> RefreshToken([FromBody]RefreshVM model)
         {
             try
             {

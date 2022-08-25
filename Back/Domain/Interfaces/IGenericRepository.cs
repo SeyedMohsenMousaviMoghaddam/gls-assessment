@@ -13,6 +13,7 @@ namespace DAL.Interfaces
         //IEnumerable<T> Find(Expression<Func<T, bool>> expression);
         Task<T> Add(T entity);
         Task AddRange(IEnumerable<T> entities);
+        Task<int> Update(T item);
         Task Remove(T entity);
         Task RemoveRange(IEnumerable<T> entities);
     }

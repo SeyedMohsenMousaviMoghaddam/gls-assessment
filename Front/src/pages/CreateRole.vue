@@ -12,24 +12,24 @@
 
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.name" label="Name"/>
+                  <q-input dark color="white" dense v-model="role_details.name" label="Name"/>
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.stateCode" label="StateCode"/>
+                  <q-input dark color="white" dense v-model="role_details.stateCode" label="StateCode"/>
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" autogrow dense v-model="user_details.description" label="Description"/>
+                  <q-input dark color="white" autogrow dense v-model="role_details.description" label="Description"/>
                 </q-item-section>
               </q-item>
 
             </q-list>
           </q-card-section>
           <q-card-actions align="right">
-            <q-btn class="text-capitalize bg-info text-white">Update User Info</q-btn>
+            <q-btn @click="save(role_details)" class="text-capitalize bg-info text-white">Update Role</q-btn>
           </q-card-actions>
         </q-card>
       </div>
@@ -39,22 +39,47 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue'
+import RoleDataService from '../services/RoleDataService';
+import { useQuasar } from 'quasar'
 
-export default defineComponent({
-  name: "UserProfile",
+export default {
+  name: "RoleCU",
   setup() {
+    function save(role_details) {
+      RoleDataService.save(role_details)
+        .then(response => {
+          alert('successfully.');
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+    const $q = useQuasar()
+    function alert (message) {
+      $q.dialog({
+        dark: true,
+        title: 'Alert',
+        message: message
+      }).onOk(() => {
+        // console.log('OK')
+      }).onCancel(() => {
+        // console.log('Cancel')
+      }).onDismiss(() => {
+        // console.log('I am triggered on both OK and Cancel')
+      })
+    }
     return {
-      user_details: {},
-      password_dict: {}
+      role_details: {},
+      alert,
+      save
     }
   }
-})
+}
 </script>
 
 <style scoped>
 
 .card-bg {
-  background-color: #162b4d;
+  background-color: #353536;
 }
 </style>

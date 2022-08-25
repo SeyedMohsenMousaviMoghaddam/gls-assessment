@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "21ab569c-ec80-4e49-9c4e-49fc9981e09e": {
+      "ProjectGuid": "21ab569c-ec80-4e49-9c4e-49fc9981e09e",
+      "DisplayName": "DAL",
+      "ColorIndex": 0
+    },
+    "db59c3c3-27ec-4cce-819b-5d4b11e0eef8": {
+      "ProjectGuid": "db59c3c3-27ec-4cce-819b-5d4b11e0eef8",
+      "DisplayName": "WebAPI",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

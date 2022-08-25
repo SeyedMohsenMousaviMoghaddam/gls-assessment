@@ -59,17 +59,18 @@ namespace WebAPI.Controllers.Common.Account
         }
 
 
-        //[HttpPost]
-        //public async Task<ServerResult> ChangePassword([FromBody] ChangePasswordCA item)
-        //{
-        //    return await _service.ChangePassword(item, UserId);
-        //}
+        [HttpPost]
+        public async Task<ServerResult> ChangePassword([FromBody] ChangePasswordVM item)
+        {
+            item.UserId = UserId;
+            return await _service.ChangePassword(item, UserId);
+        }
 
-        //[HttpPost]
-        //public async Task<ServerResult> ChangeUserPassword([FromBody] ChangePasswordCA item)
-        //{
-        //    return await _service.ChangePassword(item);
-        //}
+        [HttpPost]
+        public async Task<ServerResult> ChangePasswordAllUser([FromBody] ChangePasswordVM item)
+        {
+            return await _service.ChangePassword(item, UserId);
+        }
 
         #endregion
 

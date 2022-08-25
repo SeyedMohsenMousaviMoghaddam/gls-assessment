@@ -39,7 +39,7 @@
             </q-list>
           </q-card-section>
           <q-card-actions align="right">
-            <q-btn class="text-capitalize bg-info text-white">Update User Info</q-btn>
+            <q-btn @click="save(user_details)" class="text-capitalize bg-info text-white">Update User Info</q-btn>
           </q-card-actions>
         </q-card>
       </div>
@@ -49,22 +49,47 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue'
+import UserDataService from '../services/UserDataService';
+import { useQuasar } from 'quasar'
 
-export default defineComponent({
-  name: "UserProfile",
+export default {
+  name: "UserCU",
   setup() {
+    function save(user_details) {
+      UserDataService.save(user_details)
+        .then(response => {
+          alert('successfully.');
+        })
+        .catch(e => {
+          console.log(e);
+        });
+    }
+    const $q = useQuasar()
+    function alert (message) {
+      $q.dialog({
+        dark: true,
+        title: 'Alert',
+        message: message
+      }).onOk(() => {
+        // console.log('OK')
+      }).onCancel(() => {
+        // console.log('Cancel')
+      }).onDismiss(() => {
+        // console.log('I am triggered on both OK and Cancel')
+      })
+    }
     return {
       user_details: {},
-      password_dict: {}
+      alert,
+      save
     }
   }
-})
+}
 </script>
 
 <style scoped>
 
 .card-bg {
-  background-color: #162b4d;
+  background-color: #353536;
 }
 </style>

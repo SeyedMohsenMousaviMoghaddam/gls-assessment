@@ -14,7 +14,12 @@ class UserDataService {
   create(data) {
     return http.post("/User/Save", data);
   }
-
+  changePassword(data) {
+    return http.post("/User/ChangePassword", data);
+  }
+  changePasswordAllUser(data) {
+    return http.post("/User/ChangePasswordAllUser", data);
+  }  
   update(id, data) {
     return http.put(`/User/Save/${id}`, data);
   }

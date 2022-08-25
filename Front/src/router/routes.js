@@ -8,7 +8,7 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       {path: '/Dashboard', component: () => import('pages/Dashboard.vue')},
-      {path: '/Profile', component: () => import('pages/UserProfile.vue')},
+      {path: '/Profile/:id?', component: () => import('pages/UserProfile.vue')},
       {path: '/UserList', component: () => import('src/pages/UserList.vue')},
       {path: '/RoleList', component: () => import('src/pages/RoleList.vue')},
       {path: '/UserLoginLogList/:id', component: () => import('src/pages/UserLoginLogList.vue')},

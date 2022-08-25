@@ -10,10 +10,8 @@ namespace DAL.IService.Account
 
         Task<ServerResult> Get(DatatableRequestVM model);
         Task<ServerResult> GetById(int id);
-        //Task<ServerResult> GetLookup(LookupDTO item);
         Task<ServerResult> Save(UserVM item, int userId);
-        //Task<ServerResult> ChangePassword(ChangePasswordCA item, int userId);
-        //Task<ServerResult> ChangePassword(ChangePasswordCA item);
+        Task<ServerResult> ChangePassword(ChangePasswordVM item, int userId);
         Task<ServerResult> Delete(int id);
         Task<ServerResult> GetRoleByUserId(int id);
         Task<ServerResult> AddRoleForUser(int roleId, int userId);

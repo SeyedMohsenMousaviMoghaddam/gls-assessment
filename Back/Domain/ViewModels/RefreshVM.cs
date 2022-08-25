@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace DAL.ViewModels
 {
-    public class RefreshViewModel
+    public class RefreshVM
     {
         public string Token { get; set; }
     }

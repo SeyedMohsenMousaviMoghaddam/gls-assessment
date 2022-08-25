@@ -16,7 +16,7 @@
             <q-item class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
               <q-item-section>
                 <q-input type="password" dark dense outlined color="white" round
-                         v-model="password_dict.current_password"
+                         v-model="password_dict.oldPassword"
                          label="Current Password"/>
               </q-item-section>
             </q-item>
@@ -27,7 +27,7 @@
             </q-item>
             <q-item class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
               <q-item-section>
-                <q-input type="password" dark dense outlined color="white" round v-model="password_dict.new_password"
+                <q-input type="password" dark dense outlined color="white" round v-model="password_dict.newPassword"
                          label="New Password"/>
               </q-item-section>
             </q-item>
@@ -39,13 +39,13 @@
             <q-item class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
               <q-item-section>
                 <q-input type="password" dark dense outlined round color="white"
-                         v-model="password_dict.confirm_new_password"
+                         v-model="password_dict.confirmNewPassword"
                          label="Confirm New Password"/>
               </q-item-section>
             </q-item>
           </q-card-section>
           <q-card-actions align="right">
-            <q-btn class="text-capitalize bg-info text-white">Change Password</q-btn>
+            <q-btn @click="save(password_dict)" class="text-capitalize bg-info text-white">Change Password</q-btn>
           </q-card-actions>
 
         </q-card>
@@ -55,22 +55,76 @@
 </template>
 
 <script>
-import {defineComponent} from 'vue'
+import UserDataService from '../services/UserDataService';
+import { useQuasar } from 'quasar'
+import { useRoute } from 'vue-router'
 
-export default defineComponent({
+export default {
   name: "UserProfile",
+  props: {
+    id:0
+  },
   setup() {
+    const route = useRoute()
+    function save(password_dict) {
+      if(route.params.id)
+      {
+        password_dict.userId = route.params.id;
+        UserDataService.changePasswordAllUser(password_dict)
+        .then(response => {
+          alert('successfully.');
+        })
+        .catch(e => {
+          console.log(e);
+        });
+      }
+      else
+      {
+        UserDataService.changePassword(password_dict)
+        .then(response => {
+          alert('successfully.');
+        })
+        .catch(e => {
+          console.log(e);
+        });
+      }
+    }
+    const $q = useQuasar()
+    function alert (message) {
+      $q.dialog({
+        dark: true,
+        title: 'Alert',
+        message: message
+      }).onOk(() => {
+        // console.log('OK')
+      }).onCancel(() => {
+        // console.log('Cancel')
+      }).onDismiss(() => {
+        // console.log('I am triggered on both OK and Cancel')
+      })
+    }
     return {
-      user_details: {},
-      password_dict: {}
+      password_dict: {
+        oldPassword :'',
+        newPassword :'',
+        confirmNewPassword:'' ,
+        userId : 0
+      },
+      alert,
+      save
+    }
+  },
+  data(){
+   
+    return {
     }
   }
-})
+}
 </script>
 
 <style scoped>
 
 .card-bg {
-  background-color: #162b4d;
+  background-color: #353536;
 }
 </style>
