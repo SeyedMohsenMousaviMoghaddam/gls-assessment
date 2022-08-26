@@ -1,28 +1,28 @@
-import http from "../http-common";
+import httpToken from "../http-common-token";
 
 class RoleDataService {
   getAll(data) {
-    return http.post("/Role/GetAll",data);
+    return httpToken.post("/Role/GetAll",data);
   }
 
   get(id) {
-    return http.get(`/Role/GetById/${id}`);
+    return httpToken.get(`/Role/GetById/${id}`);
   }
 
   create(data) {
-    return http.post("/Role/Save", data);
+    return httpToken.post("/Role/Save", data);
   }
 
   update(id, data) {
-    return http.put(`/Role/Save/${id}`, data);
+    return httpToken.put(`/Role/Save/${id}`, data);
   }
 
   delete(id) {
-    return http.delete(`/Role/Delete/${id}`);
+    return httpToken.delete(`/Role/Delete/${id}`);
   }
 
   findByTitle(title) {
-    return http.get(`/Role/GetById?title=${title}`);
+    return httpToken.get(`/Role/GetById?title=${title}`);
   }
 
 }

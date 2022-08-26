@@ -23,53 +23,75 @@ namespace WebAPI.Controllers.Common.Account
         #region User
 
         [HttpPost]
-        public async Task<ServerResult> GetAll([FromBody] DatatableRequestVM model)
+        public async Task<IActionResult> GetAll([FromBody] DatatableRequestVM model)
         {
-            return await _service.Get(model);
+            return Ok(await _service.Get(model));
         }
 
         [HttpGet("{id}")]
-        public async Task<ServerResult> GetById(int id)
+        public async Task<IActionResult> GetById(int id)
         {
-            return await _service.GetById(id);
+
+            return Ok(await _service.GetById(id));
         }
 
         [HttpGet("{id}")]
-        public async Task<ServerResult> GetAllLog(int id)
+        public async Task<IActionResult> GetAllLog(int id)
         {
-            return await _service.GetLog(id);
+            return Ok(await _service.GetLog(id));
         }
         //[HttpPost]
-        //public async Task<ServerResult> GetLookup([FromBody] LookupDTO item)
+        //public async Task<IActionResult> GetLookup([FromBody] LookupDTO item)
         //{
         //    return await _service.GetLookup(item);
         //}
 
 
         [HttpDelete("{id}")]
-        public async Task<ServerResult> Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            return await _service.Delete(id);
+
+            return Ok(await _service.Delete(id));
         }
 
         [HttpPost]
-        public async Task<ServerResult> Save([FromBody] UserVM item)
+        public async Task<IActionResult> Save([FromBody] UserVM item)
         {
-            return await _service.Save(item, UserId);
+            UserValidator _validator = new UserValidator();
+            var validResult = _validator.Validate(item);
+            if (!validResult.IsValid)
+            {
+                return BadRequest(validResult.Errors);
+            }
+            return Ok(await _service.Save(item, UserId));
         }
 
 
         [HttpPost]
-        public async Task<ServerResult> ChangePassword([FromBody] ChangePasswordVM item)
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordVM item)
         {
+
             item.UserId = UserId;
-            return await _service.ChangePassword(item, UserId);
+            ChangePasswordValidator _validator = new ChangePasswordValidator();
+            var validResult = _validator.Validate(item);
+            if (!validResult.IsValid)
+            {
+                return BadRequest(validResult.Errors);
+            }
+            return Ok(await _service.ChangePassword(item, UserId));
         }
 
         [HttpPost]
-        public async Task<ServerResult> ChangePasswordAllUser([FromBody] ChangePasswordVM item)
+        public async Task<IActionResult> ChangePasswordAllUser([FromBody] ChangePasswordVM item)
         {
-            return await _service.ChangePassword(item, UserId);
+            ChangePasswordValidator _validator = new ChangePasswordValidator();
+            var validResult = _validator.Validate(item);
+            if (!validResult.IsValid)
+            {
+                return BadRequest(validResult.Errors);
+            }
+            
+            return Ok(await _service.ChangePassword(item, UserId));
         }
 
         #endregion
@@ -77,21 +99,21 @@ namespace WebAPI.Controllers.Common.Account
         #region Role
 
         [HttpGet("{id}")]
-        public async Task<ServerResult> GetRoleByUserId(int id)
+        public async Task<IActionResult> GetRoleByUserId(int id)
         {
-            return await _service.GetRoleByUserId(id);
+            return Ok(await _service.GetRoleByUserId(id));
         }
 
         [HttpPost]
-        public async Task<ServerResult> AddRoleForUser([FromBody]int id)
+        public async Task<IActionResult> AddRoleForUser([FromBody]int id)
         {
-            return await _service.AddRoleForUser(id, UserId);
+            return Ok(await _service.AddRoleForUser(id, UserId));
         }
 
         [HttpGet("{id}")]
-        public async Task<ServerResult> RemoveRoleFromUser(int id)
+        public async Task<IActionResult> RemoveRoleFromUser(int id)
         {
-            return await _service.RemoveRoleFromUser(id, UserId);
+            return Ok(await _service.RemoveRoleFromUser(id, UserId));
         }
 
         #endregion

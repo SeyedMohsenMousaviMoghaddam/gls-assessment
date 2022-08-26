@@ -13,9 +13,7 @@ namespace WebAPI.Infrastructure
         private static ConcurrentDictionary<string, SecurityKey> _tokens = new ConcurrentDictionary<string, SecurityKey>
         {
             ["AdminPanel"] = JwtSecurityKey.Create("FucZKmfPWlvY91oFOPjJ"),
-            ["ResellerPanel"] = JwtSecurityKey.Create("386B17FD36C9176795BF91ABEEC43"),
-            ["AgentApp"] = JwtSecurityKey.Create("386B17FD36C9176795BF91ABEEC44"),
-            ["OKalaApp"] = JwtSecurityKey.Create("386B17FD36C9176795BF91ABEEC45")
+            ["BasePanel"] = JwtSecurityKey.Create("386B17FD36C9176795BF91ABEEC43")
         };
         public static ConcurrentDictionary<string, SecurityKey> Tokens => _tokens;
     }

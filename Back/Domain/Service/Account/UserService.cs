@@ -27,28 +27,35 @@ namespace DAL.Service.Account
 
         public async Task<ServerResult> GetByUserName(string username)
         {
-            var result = new ServerResult();
-            result.Data = await _userRepository.GetByUserName(username);
-            return result;
+            return new ServerResult { Success = true, Data = await _userRepository.GetByUserName(username) };
+
         }
         public async Task<ServerResult> LoginUser(string userName, string password, bool customerAgentLogin = true)
         {
-            var userResult = await GetByUserName(userName).ConfigureAwait(false);
-
-
-            if (userResult.Success == false)
-                return new ServerResult { Success = false, Message = "The username or password is wrong!" };
-
-            var user = userResult.Data as UserVM;
-
-            var hashedPassword = Security.HashSHA1(password + user.UserName);
-
-            if (hashedPassword == user.Password)
+            try
             {
-                await _userLoginLogRepository.Add(new Models.UserLoginLog { UserName=userName });
-                return new ServerResult { Success = true, Message = "Login successfully.", Data = user };
+                var userResult = await GetByUserName(userName).ConfigureAwait(false);
+
+
+                if (userResult.Success == false)
+                    return new ServerResult { Success = false, Message = "The username or password is wrong!" };
+
+                var user = userResult.Data as User;
+
+                var hashedPassword = Security.HashSHA1(password + user.UserName);
+
+                if (hashedPassword == user.Password)
+                {
+                    await _userLoginLogRepository.Add(new Models.UserLoginLog { UserId = user.Id });
+                    return new ServerResult { Success = true, Message = "Login successfully.", Data = user };
+                }
+                return new ServerResult { Success = false, Message = "The username or password is wrong!" };
             }
-            return new ServerResult { Success = false, Message = "The username or password is wrong!" };
+            catch (Exception e)
+            {
+                throw e;
+            }
+
         }
 
         public async Task<ServerResult> Get(DatatableRequestVM model)
@@ -93,7 +100,7 @@ namespace DAL.Service.Account
             {
                 user.Password = newpassHashed;
                 await _userRepository.Update(user);
-                return new ServerResult { Success = true, Message = "Login successfully.", Data = user };
+                return new ServerResult { Success = true, Message = "successfully.", Data = user };
             }
             catch (Exception e)
             {
@@ -106,6 +113,7 @@ namespace DAL.Service.Account
             try
             {
                 var user = _mapper.Map<User>(item);
+
                 user.Password = Security.HashSHA1(user.Password + user.UserName);
                 return new ServerResult { Success = true, Data = await _userRepository.Add(user) };
 

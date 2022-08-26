@@ -6,7 +6,7 @@
         <q-card class="card-bg text-white">
           <q-card-section class="text-h6 q-pa-sm">
             <div class="text-h6">Change Password</div>
-          </q-card-section>
+          </q-card-section>         
           <q-card-section class="q-pa-sm row">
             <q-item class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
               <q-item-section>
@@ -61,34 +61,9 @@ import { useRoute } from 'vue-router'
 
 export default {
   name: "UserProfile",
-  props: {
-    id:0
-  },
   setup() {
     const route = useRoute()
-    function save(password_dict) {
-      if(route.params.id)
-      {
-        password_dict.userId = route.params.id;
-        UserDataService.changePasswordAllUser(password_dict)
-        .then(response => {
-          alert('successfully.');
-        })
-        .catch(e => {
-          console.log(e);
-        });
-      }
-      else
-      {
-        UserDataService.changePassword(password_dict)
-        .then(response => {
-          alert('successfully.');
-        })
-        .catch(e => {
-          console.log(e);
-        });
-      }
-    }
+
     const $q = useQuasar()
     function alert (message) {
       $q.dialog({
@@ -103,20 +78,63 @@ export default {
         // console.log('I am triggered on both OK and Cancel')
       })
     }
+    function alarm (message) {
+      $q.notify({
+                    type: 'negative',
+                    message: message
+                })
+    }
+    return {
+      alarm,
+      alert
+    }
+  },
+  data(){
     return {
       password_dict: {
         oldPassword :'',
         newPassword :'',
         confirmNewPassword:'' ,
-        userId : 0
+        userId : this.$route.params.id??0
       },
-      alert,
-      save
+      modelstate : ''
     }
   },
-  data(){
-   
-    return {
+  methods:{
+    save(input) {
+      if(input.userId)
+      {
+        UserDataService.changePasswordAllUser(input)
+        .then(response => {
+          this.alert(response.data.message);
+        })
+        .catch(e => {
+          if(e.response.status == 400)
+          {
+            this.modelstate = e.response.data.map(function(item){return item.errorMessage;});
+            this.modelstate.forEach((element) => {
+              this.alarm(element);
+             });
+          }
+        });
+      }
+      else
+      {
+        input.userId = 0;
+        UserDataService.changePassword(input)
+        .then(response => {          
+          this.alert(response.data.message);
+        })
+        .catch(e => {
+          if(e.response.status == 400)
+          {
+            this.modelstate = e.response.data.map(function(item){return item.errorMessage;});
+            this.modelstate.forEach((element) => {
+                    this.alarm(element);
+             });
+          }
+        });
+      }
     }
   }
 }

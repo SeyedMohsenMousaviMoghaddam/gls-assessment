@@ -41,16 +41,4 @@ namespace DAL.Models
         public virtual ICollection<Role> Roles { get; set; }
         public virtual ICollection<UserLoginLog> UserLoginLogs { get; set; }
     }
-    public class UserValidator : AbstractValidator<User>
-    {
-        public UserValidator()
-        {
-            RuleFor(x => x.Id).NotNull();
-            RuleFor(x => x.Name).Length(0, 10);
-            RuleFor(x => x.UserName).EmailAddress();
-            //RuleFor(x => x.StateCode).InclusiveBetween(0, 1);
-            //RuleFor(x => x.Password).Equal(x => x.PasswordConfirmation);
-
-        }
-    }
 }

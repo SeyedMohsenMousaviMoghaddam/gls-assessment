@@ -4,7 +4,7 @@
       <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
         <q-card class="card-bg text-white">
           <q-card-section class="text-h6 ">
-            <div class="text-h6">Edit Profile</div>
+            <div class="text-h6">{{title}} Profile</div>
           </q-card-section>
           <q-card-section class="q-pa-sm">
             <q-list class="row">
@@ -39,7 +39,7 @@
             </q-list>
           </q-card-section>
           <q-card-actions align="right">
-            <q-btn @click="save(user_details)" class="text-capitalize bg-info text-white">Update User Info</q-btn>
+            <q-btn @click="save(user_details)" class="text-capitalize bg-info text-white">{{title}} User Info</q-btn>
           </q-card-actions>
         </q-card>
       </div>
@@ -51,20 +51,18 @@
 <script>
 import UserDataService from '../services/UserDataService';
 import { useQuasar } from 'quasar'
+import { useRoute } from 'vue-router'
 
 export default {
   name: "UserCU",
   setup() {
-    function save(user_details) {
-      UserDataService.save(user_details)
-        .then(response => {
-          alert('successfully.');
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }
     const $q = useQuasar()
+    function alarm (message) {
+      $q.notify({
+                    type: 'negative',
+                    message: message
+                })
+    }
     function alert (message) {
       $q.dialog({
         dark: true,
@@ -79,11 +77,46 @@ export default {
       })
     }
     return {
-      user_details: {},
       alert,
-      save
+      alarm
     }
-  }
+  },
+  data(){
+    return {
+      user_details: {},
+      title : 'Create',
+      modelstate : ''
+    }
+  },  
+  created() {
+    this.getData();
+  },
+  methods:{
+    getData(){
+      const route = useRoute()
+      UserDataService.get(route.params.id)
+        .then(response => {
+          this.title = 'Edit';
+          this.user_details = response.data.data;
+        })
+        .catch(e => {})
+    },
+    save(input) {
+        UserDataService.save(input)
+        .then(response => {
+          this.alert(response.data.message);
+        })
+        .catch(e => {
+          if(e.response.status == 400)
+          {
+            this.modelstate = e.response.data.map(function(item){return item.errorMessage;});
+            this.modelstate.forEach((element) => {
+              this.alarm(element);
+             });
+          }
+        });
+    }
+  }  
 }
 </script>
 

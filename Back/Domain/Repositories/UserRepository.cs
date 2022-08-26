@@ -11,13 +11,9 @@ namespace DAL.Repositories
         public UserRepository(GLSTablesDataBaseContext context) : base(context)
         {
         }
-        public IEnumerable<User> GetPopularDevelopers(int count)
-        {
-            return _context.Users.OrderByDescending(d => d.Name).Take(count).ToList();
-        }
         public async Task<User> GetByUserName(string username)
         {
-            return await _context.Set<User>().FirstOrDefaultAsync(p=>p.UserName == username);
+            return _context.Set<User>().FirstOrDefault(p=>p.UserName == username);
         }
     }
 }

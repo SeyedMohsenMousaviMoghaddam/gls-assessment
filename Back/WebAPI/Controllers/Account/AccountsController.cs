@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using DAL;
 using DAL.Infra;
 using DAL.IService.Account;
+using DAL.Models;
 using DAL.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
@@ -31,12 +32,6 @@ namespace WebAPI.Controllers.Account
         }
 
         [HttpPost]
-        public async Task<ServerResult> LoginUser([FromBody] LoginVM model)
-        {
-            return await _service.LoginUser(model.Username, model.Password);
-        }
-
-        [HttpPost]
         [AllowAnonymous]
         public async Task<ServerResult> ValidateToken([FromBody] string token)
         {
@@ -44,27 +39,28 @@ namespace WebAPI.Controllers.Account
         }
 
         [HttpPost]
-        //[ApiExplorerSettings(IgnoreApi = true)]
-        public async Task<ServerResult> Login([FromBody] LoginVM model)
+        public async Task<IActionResult> Login([FromBody] LoginVM model)
         {
+
+
+            LoginValidator _validator = new LoginValidator();
+            var validResult = _validator.Validate(model);
+            if (!validResult.IsValid)
+            {
+                return BadRequest(validResult.Errors);
+            }
             var userResult = await _service.LoginUser(model.Username, model.Password);
             if (!userResult.Success)
-                return userResult;
-
-            if (!(userResult.Data is UserVM user))
-                return userResult;
-
-            var userRoleResult = await _service.GetRoleByUserId(user.Id);
-            var userRoles = userRoleResult.Data as List<RoleVM>;
-
-            var token = GenerateToken(user, userRoles);
-
-            return new ServerResult
+            {
+                validResult.Errors.Add(new FluentValidation.Results.ValidationFailure {ErrorMessage = userResult.Message });
+                return BadRequest(validResult.Errors);
+            }
+            var token = GenerateToken(userResult.Data as User);
+            return Ok(new ServerResult
             {
                 Success = true,
                 Data = token
-            };
-
+            });
         }
 
         [HttpGet("{id}")]
@@ -91,7 +87,7 @@ namespace WebAPI.Controllers.Account
                 if (!userResult.Success)
                     return new BadRequestResult();
 
-                if (!(userResult.Data is UserVM user))
+                if (!(userResult.Data is User user))
                     return new BadRequestResult();
 
                 var newToken = GenerateToken(user);
@@ -103,13 +99,13 @@ namespace WebAPI.Controllers.Account
             }
         }
 
-        private string GenerateToken(UserVM user, List<RoleVM> roles = null)
+        private string GenerateToken(User user)
         {
 
             var token = new JwtTokenBuilder()
                                             .AddSecurityKey(ApplicationTokens.Tokens["AdminPanel"])
                                             .AddSubject(user.UserName)
-                                            .AddIssuer("GolrangSytetem")
+                                            .AddIssuer("GLS")
                                             .AddAudience("AdminPanel")
                                             .AddClaim("username", user.UserName)
                                             .AddClaim("displayname", $"{user.Name}")

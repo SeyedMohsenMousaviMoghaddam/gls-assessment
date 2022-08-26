@@ -7,7 +7,7 @@ namespace WebAPI.Infrastructure
 {
     [Route("[controller]/[action]")]
     [Produces("application/json")]
-    //[Auth]
+    [Auth]
     public class ApiController : Controller
     {
         protected int UserId;

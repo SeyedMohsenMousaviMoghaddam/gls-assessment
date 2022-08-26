@@ -50,9 +50,23 @@
 import {defineComponent} from 'vue'
 import {ref} from 'vue'
 import UserDataService from '../services/UserDataService';
+import { useQuasar } from 'quasar'
+import { useRoute } from 'vue-router'
 
 export default {
   name: "Login",
+  setup() {
+    const $q = useQuasar()
+    function alarm (message) {
+      $q.notify({
+                    type: 'negative',
+                    message: message
+                })
+    }
+    return {
+      alarm
+    }
+  },  
   data() {
     return {
       username: ref(''),
@@ -67,11 +81,31 @@ export default {
       };
       UserDataService.loginUser(data)
         .then(response => {
-          console.log(response.data);
-          this.refreshList();
+          if(response.data.success)
+          {
+              //localStorage setItem
+              if ("localStorage" in window) {
+                  localStorage.setItem("access_token",response.data.data);
+                  this.$router.push('/Dashboard' );
+              } else {
+                    console.alarm("no localStorage in window");
+              }
+          }
+          else
+          {
+            this.alarm(response.data.message);
+          }
         })
         .catch(e => {
           console.log(e);
+          if(e.response.status == 400)
+          {
+            this.modelstate = e.response.data.map(function(item){return item.errorMessage;});
+            this.modelstate.forEach((element) => {
+              this.alarm(element);
+             });
+          }
+          
         });
     }
     /*return {

@@ -12,6 +12,7 @@ namespace DAL.ViewModels
         public string UserName { get; set; }
 
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
         //[RegularExpression(pattern: @"[0|۰]{1}[9|۹]{1}[۰|0-۹|9]{9}", ErrorMessage = "is a valid MobileNumber")]
         [DataType(DataType.PhoneNumber, ErrorMessage = "Invalid Phone Number")]
         public string MobileNumber { get; set; }
@@ -45,7 +46,7 @@ namespace DAL.ViewModels
             RuleFor(x => x.Name).Length(0, 10);
             RuleFor(x => x.UserName).EmailAddress();
             //RuleFor(x => x.StateCode).InclusiveBetween(0, 2);
-            //RuleFor(x => x.Password).Equal(x => x.PasswordConfirmation);
+            RuleFor(x => x.Password).Equal(x => x.ConfirmPassword).WithMessage("Your password and confirmation password do not match.");
 
         }
     }

@@ -4,7 +4,7 @@
       <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
         <q-card class="card-bg text-white">
           <q-card-section class="text-h6 ">
-            <div class="text-h6">Edit Role</div>
+            <div class="text-h6">{{title}} Role</div>
           </q-card-section>
           <q-card-section class="q-pa-sm">
             <q-list class="row">
@@ -29,7 +29,7 @@
             </q-list>
           </q-card-section>
           <q-card-actions align="right">
-            <q-btn @click="save(role_details)" class="text-capitalize bg-info text-white">Update Role</q-btn>
+            <q-btn @click="save(role_details)" class="text-capitalize bg-info text-white">{{title}} Role</q-btn>
           </q-card-actions>
         </q-card>
       </div>
@@ -41,20 +41,18 @@
 <script>
 import RoleDataService from '../services/RoleDataService';
 import { useQuasar } from 'quasar'
+import { useRoute } from 'vue-router'
 
 export default {
   name: "RoleCU",
   setup() {
-    function save(role_details) {
-      RoleDataService.save(role_details)
-        .then(response => {
-          alert('successfully.');
-        })
-        .catch(e => {
-          console.log(e);
-        });
-    }
     const $q = useQuasar()
+    function alarm (message) {
+      $q.notify({
+                    type: 'negative',
+                    message: message
+                })
+    }
     function alert (message) {
       $q.dialog({
         dark: true,
@@ -69,9 +67,44 @@ export default {
       })
     }
     return {
-      role_details: {},
       alert,
-      save
+      alarm
+    }
+  },
+  data(){
+    return {
+      role_details: {},
+      title : 'Create',
+      modelstate : ''
+    }
+  },    
+  created() {
+    this.getData();
+  },  
+  methods:{
+    getData(){
+      const route = useRoute()
+      RoleDataService.get(route.params.id)
+        .then(response => {
+          this.title = 'Edit';
+          this.role_details = response.data.data;
+        })
+        .catch(e => {})
+    },    
+    save(input) {
+        RoleDataService.save(input)
+        .then(response => {
+          this.alert(response.data.message);
+        })
+        .catch(e => {
+          if(e.response.status == 400)
+          {
+            this.modelstate = e.response.data.map(function(item){return item.errorMessage;});
+            this.modelstate.forEach((element) => {
+              this.alarm(element);
+             });
+          }
+        })
     }
   }
 }
