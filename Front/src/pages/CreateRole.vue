@@ -12,12 +12,13 @@
 
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="role_details.name" label="Name"/>
+                  <q-select  dark color="white" v-model="role_details.name" :options="options"          
+                      emit-value  map-options label="Name" />
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="role_details.stateCode" label="StateCode"/>
+                  <q-toggle v-model="role_details.stateCode" label="StateCode" />
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -73,6 +74,7 @@ export default {
   },
   data(){
     return {
+      options:[{value:1,label:"Admin"},{value:0,label:"Base"}],
       role_details: {},
       title : 'Create',
       modelstate : ''
@@ -92,9 +94,9 @@ export default {
         .catch(e => {})
     },    
     save(input) {
-        RoleDataService.save(input)
+        RoleDataService.create(input)
         .then(response => {
-          this.alert(response.data.message);
+          this.alert("Done");
         })
         .catch(e => {
           if(e.response.status == 400)
@@ -113,6 +115,6 @@ export default {
 <style scoped>
 
 .card-bg {
-  background-color: #353536;
+  background-color: #6c6c6e;
 }
 </style>

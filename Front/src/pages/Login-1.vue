@@ -81,11 +81,11 @@ export default {
       };
       UserDataService.loginUser(data)
         .then(response => {
-          if(response.data.success)
+          if(response)
           {
               //localStorage setItem
               if ("localStorage" in window) {
-                  localStorage.setItem("access_token",response.data.data);
+                  localStorage.setItem("access_token",response.data);
                   this.$router.push('/Dashboard' );
               } else {
                     console.alarm("no localStorage in window");
@@ -93,7 +93,7 @@ export default {
           }
           else
           {
-            this.alarm(response.data.message);
+            this.alarm(response);
           }
         })
         .catch(e => {

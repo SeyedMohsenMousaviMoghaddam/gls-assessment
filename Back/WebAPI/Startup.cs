@@ -119,6 +119,8 @@ namespace WebAPI
                     logger.LogError(ex, "An error occurred creating the DB.");
                 }
             }
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
+
             app.UseCors("corsapp");
             app.UseHttpsRedirection();
             app.UseStaticFiles();

@@ -16,33 +16,26 @@ namespace WebAPI.Controllers.Common.Account
 		}
 
         [HttpPost]
-        public async Task<ServerResult> GetAll([FromBody] DatatableRequestVM model)
+        public async Task<IActionResult> GetAll([FromBody] DatatableRequestVM model)
         {
-            return await _service.Get(model);
+            return Ok(await _service.Get(model));
         }
 
         [HttpGet("{id}")]
-		public async Task<ServerResult> GetById(int id)
+		public async Task<IActionResult> GetById(int id)
 		{
-			return await _service.GetById(id);
+			return Ok(await _service.GetById(id));
 		}
-
-		//[HttpPost]
-		//public async Task<ServerResult> GetLookup([FromBody]LookupDTO item)
-		//{
-		//	return await _service.GetLookup(item);
-		//}
-
 		[HttpDelete("{id}")]
-		public async Task<ServerResult> Delete(int id)
+		public async Task<IActionResult> Delete(int id)
 		{
-			return await _service.Delete(id);
+			return Ok(await _service.Delete(id));
 		}
 
 		[HttpPost]
-		public async Task<ServerResult> Save([FromBody]RoleVM item)
+		public async Task<IActionResult> Save([FromBody]RoleVM item)
 		{
-			return await _service.Save(item, this.UserId);
+			return Ok(await _service.Save(item, this.UserId));
 		}   
 
     }

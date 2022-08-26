@@ -22,5 +22,6 @@ namespace DAL.ViewModels
         public string UserModifiedBy { get; set; }
 
         public bool StateCode { get; set; }
+        public List<RoleVM> Users { get; set; }
     }
 }

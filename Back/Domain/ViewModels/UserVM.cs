@@ -46,7 +46,7 @@ namespace DAL.ViewModels
             RuleFor(x => x.Name).Length(0, 10);
             RuleFor(x => x.UserName).EmailAddress();
             //RuleFor(x => x.StateCode).InclusiveBetween(0, 2);
-            RuleFor(x => x.Password).Equal(x => x.ConfirmPassword).WithMessage("Your password and confirmation password do not match.");
+            //RuleFor(x => x.Password).Equal(x => x.ConfirmPassword).WithMessage("Your password and confirmation password do not match.");
 
         }
     }

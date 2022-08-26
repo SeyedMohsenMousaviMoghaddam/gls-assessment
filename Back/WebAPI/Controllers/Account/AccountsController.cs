@@ -32,13 +32,6 @@ namespace WebAPI.Controllers.Account
         }
 
         [HttpPost]
-        [AllowAnonymous]
-        public async Task<ServerResult> ValidateToken([FromBody] string token)
-        {
-            return new ServerResult() { Success = await ValidateJwtToken(token) > 0 };
-        }
-
-        [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginVM model)
         {
 
@@ -56,47 +49,28 @@ namespace WebAPI.Controllers.Account
                 return BadRequest(validResult.Errors);
             }
             var token = GenerateToken(userResult.Data as User);
-            return Ok(new ServerResult
-            {
-                Success = true,
-                Data = token
-            });
+            return Ok(token);
         }
 
         [HttpGet("{id}")]
-        public async Task<ServerResult> GetRoleByUserId(int id)
+        public async Task<IActionResult> GetRoleByUserId(int id)
         {
-            return await _service.GetRoleByUserId(id);
-        }
-
-
-        [HttpPost("{id}")]
-        public async Task<ServerResult> GetUserById(int id)
-        {
-
-            return await _service.GetById(id);
+            return Ok(await _service.GetRoleByUserId(id));
         }
 
         [HttpPost]
-        public async Task<IActionResult> RefreshToken([FromBody]RefreshVM model)
+        public async Task<IActionResult> RefreshToken([FromBody] RefreshVM model)
         {
-            try
-            {
-                var decoded = (new JwtSecurityTokenHandler()).ReadJwtToken(model.Token);
-                var userResult = await _service.GetByUserName(decoded.Subject);
-                if (!userResult.Success)
-                    return new BadRequestResult();
-
-                if (!(userResult.Data is User user))
-                    return new BadRequestResult();
-
-                var newToken = GenerateToken(user);
-                return new OkObjectResult(newToken);
-            }
-            catch
-            {
+            var decoded = (new JwtSecurityTokenHandler()).ReadJwtToken(model.Token);
+            var userResult = await _service.GetByUserName(decoded.Subject);
+            if (!userResult.Success)
                 return new BadRequestResult();
-            }
+
+            if (!(userResult.Data is User user))
+                return new BadRequestResult();
+
+            var newToken = GenerateToken(user);
+            return new OkObjectResult(newToken);
         }
 
         private string GenerateToken(User user)

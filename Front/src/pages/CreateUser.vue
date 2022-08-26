@@ -27,11 +27,11 @@
               </q-item>
               <q-item class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <q-item-section>
-                  <q-input dark color="white" dense v-model="user_details.stateCode" label="StateCode"/>
+                  <q-toggle v-model="user_details.stateCode" label="StateCode" />
                 </q-item-section>
               </q-item>
               <q-item class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <q-item-section>
+                <q-item-section>                  
                   <q-input dark color="white" autogrow dense v-model="user_details.description" label="Description"/>
                 </q-item-section>
               </q-item>
@@ -102,9 +102,9 @@ export default {
         .catch(e => {})
     },
     save(input) {
-        UserDataService.save(input)
+        UserDataService.create(input)
         .then(response => {
-          this.alert(response.data.message);
+          this.alert("Done");
         })
         .catch(e => {
           if(e.response.status == 400)
@@ -123,6 +123,6 @@ export default {
 <style scoped>
 
 .card-bg {
-  background-color: #353536;
+  background-color: #6c6c6e;
 }
 </style>

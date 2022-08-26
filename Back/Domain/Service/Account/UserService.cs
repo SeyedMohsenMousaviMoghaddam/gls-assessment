@@ -32,60 +32,36 @@ namespace DAL.Service.Account
         }
         public async Task<ServerResult> LoginUser(string userName, string password, bool customerAgentLogin = true)
         {
-            try
-            {
-                var userResult = await GetByUserName(userName).ConfigureAwait(false);
+
+            var userResult = await GetByUserName(userName).ConfigureAwait(false);
 
 
-                if (userResult.Success == false)
-                    return new ServerResult { Success = false, Message = "The username or password is wrong!" };
-
-                var user = userResult.Data as User;
-
-                var hashedPassword = Security.HashSHA1(password + user.UserName);
-
-                if (hashedPassword == user.Password)
-                {
-                    await _userLoginLogRepository.Add(new Models.UserLoginLog { UserId = user.Id });
-                    return new ServerResult { Success = true, Message = "Login successfully.", Data = user };
-                }
+            if (userResult.Success == false)
                 return new ServerResult { Success = false, Message = "The username or password is wrong!" };
-            }
-            catch (Exception e)
+
+            var user = userResult.Data as User;
+
+            var hashedPassword = Security.HashSHA1(password + user.UserName);
+
+            if (hashedPassword == user.Password)
             {
-                throw e;
+                await _userLoginLogRepository.Add(new Models.UserLoginLog { UserId = user.Id });
+                return new ServerResult { Success = true, Message = "Login successfully.", Data = user };
             }
-
+            return new ServerResult { Success = false, Message = "The username or password is wrong!" };
         }
-
         public async Task<ServerResult> Get(DatatableRequestVM model)
         {
-            try
-            {
-                return new ServerResult { Success = true, Data = await _userRepository.GetAll() };
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            return new ServerResult { Success = true, Data = await _userRepository.GetAll() };
         }
         public async Task<ServerResult> GetLog(int userId)
         {
-            try
-            {
-                return new ServerResult { Success = true, Data = await _userLoginLogRepository.GetLog(userId) };
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            return new ServerResult { Success = true, Data = await _userLoginLogRepository.GetLog(userId) };
         }
         public async Task<ServerResult> GetById(int id)
         {
             return new ServerResult { Success = true, Data = await _userRepository.GetById(id) };
-
         }
-
         public async Task<ServerResult> ChangePassword(ChangePasswordVM item, int userId)
         {
             var userResult = await GetById(item.UserId);
@@ -96,45 +72,27 @@ namespace DAL.Service.Account
             if (oldpasshashed != user.Password)
                 return new ServerResult { Success = false, Message = "The old password is wrong!" };
             var newpassHashed = Security.HashSHA1(item.NewPassword + user.UserName);
-            try
-            {
-                user.Password = newpassHashed;
-                await _userRepository.Update(user);
-                return new ServerResult { Success = true, Message = "successfully.", Data = user };
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            user.Password = newpassHashed;
+            await _userRepository.Update(user);
+            return new ServerResult { Success = true, Message = "successfully.", Data = user };
         }
 
         public async Task<ServerResult> Save(UserVM item, int userId)
         {
-            try
+            var user = _mapper.Map<User>(item);                        
+            if (item.Id == 0)
             {
-                var user = _mapper.Map<User>(item);
-
-                user.Password = Security.HashSHA1(user.Password + user.UserName);
+                user.Password = Security.HashSHA1(user.MobileNumber + user.UserName);
                 return new ServerResult { Success = true, Data = await _userRepository.Add(user) };
-
             }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            else
+                return new ServerResult { Success = true, Data = await _userRepository.Update(user) };
         }
 
         public async Task<ServerResult> Delete(int id)
         {
-            try
-            {
-                await _userRepository.Remove(await _userRepository.GetById(id));
-                return new ServerResult { Success = true };
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            await _userRepository.Remove(await _userRepository.GetById(id));
+            return new ServerResult { Success = true };
         }
 
 
@@ -147,34 +105,18 @@ namespace DAL.Service.Account
 
         public async Task<ServerResult> AddRoleForUser(int roleId, int userId)
         {
-            try
-            {
-                var roleItem = await _roleRepository.GetById(roleId);
-                var userItem = await _userRepository.GetById(userId);
-                userItem.Roles.Add(roleItem);
-                return new ServerResult { Success = true};
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            var roleItem = await _roleRepository.GetById(roleId);
+            var userItem = await _userRepository.GetById(userId);
+            userItem.Roles.Add(roleItem);
+            return new ServerResult { Success = true };
         }
 
         public async Task<ServerResult> RemoveRoleFromUser(int roleId, int userId)
         {
-            try
-            {
-                var roleItem = await _roleRepository.GetById(roleId);
-                var userItem = await _userRepository.GetById(userId);
-                //userItem.RoleItems.(roleItem);
-                return new ServerResult { Success = true };
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            var roleItem = await _roleRepository.GetById(roleId);
+            var userItem = await _userRepository.GetById(userId);
+            //userItem.RoleItems.(roleItem);
+            return new ServerResult { Success = true };
         }
     }
 }

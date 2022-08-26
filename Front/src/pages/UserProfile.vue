@@ -143,6 +143,6 @@ export default {
 <style scoped>
 
 .card-bg {
-  background-color: #353536;
+  background-color: #6c6c6e;
 }
 </style>

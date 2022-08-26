@@ -40,12 +40,6 @@ namespace WebAPI.Controllers.Common.Account
         {
             return Ok(await _service.GetLog(id));
         }
-        //[HttpPost]
-        //public async Task<IActionResult> GetLookup([FromBody] LookupDTO item)
-        //{
-        //    return await _service.GetLookup(item);
-        //}
-
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
