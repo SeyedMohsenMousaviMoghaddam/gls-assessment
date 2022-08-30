@@ -1,2 +1,5 @@
 node_modules
 Back/WebAPI/logs
+bin
+.vs
+\obj
