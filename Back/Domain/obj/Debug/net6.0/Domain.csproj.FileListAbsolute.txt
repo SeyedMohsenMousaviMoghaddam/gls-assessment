@@ -1,5 +1,0 @@
-I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\Domain.csproj.AssemblyReference.cache
-I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
-I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\Domain.AssemblyInfoInputs.cache
-I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\Domain.AssemblyInfo.cs
-I:\gls-assessment\GLSDomains\Domain\obj\Debug\net6.0\Domain.csproj.CoreCompileInputs.cache
