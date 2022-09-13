@@ -1,0 +1,326 @@
+2022-09-09 18:21:18.853 +04:30 [Information] User profile is available. Using '"C:\Users\Fateme\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-09 18:21:21.154 +04:30 [Information] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "MigrationsAssembly=GLS.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null "
+2022-09-09 18:21:23.348 +04:30 [Information] Executed DbCommand ("68"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-09-09 18:21:23.438 +04:30 [Information] Executed DbCommand ("55"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-09-09 18:21:23.456 +04:30 [Information] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-09-09 18:21:23.483 +04:30 [Information] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-09-09 18:21:23.514 +04:30 [Information] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+2022-09-09 18:21:23.560 +04:30 [Information] No migrations were applied. The database is already up to date.
+2022-09-09 18:21:24.316 +04:30 [Information] Executed DbCommand ("60"ms) [Parameters=["@__administratorRole_Name_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]
+        WHERE ([a].[Name] = @__administratorRole_Name_0) AND ([a].[Name] IS NOT NULL)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-09-09 18:21:24.333 +04:30 [Information] Executed DbCommand ("4"ms) [Parameters=["@__administrator_UserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]
+        WHERE ([a].[UserName] = @__administrator_UserName_0) AND ([a].[UserName] IS NOT NULL)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-09-09 18:21:24.575 +04:30 [Information] Starting Duende IdentityServer version "5.2.0+1c3f1fadb0fa7a4bea3f4a6f7028cbfcff3b9918" (".NET 6.0.1")
+2022-09-09 18:21:24.826 +04:30 [Warning] You do not have a valid license key for Duende IdentityServer. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please start a conversation with us: https://duendesoftware.com/contact
+2022-09-09 18:21:24.842 +04:30 [Information] Configuring local API resource '"GLS.PresentationAPI"'.
+2022-09-09 18:21:24.853 +04:30 [Information] Configuring client '"GLS.Presentation"'.
+2022-09-09 18:21:24.881 +04:30 [Information] Loading development key at '"I:\GLS\gls-assessment\src\Presentation\obj/tempkey.json"'.
+2022-09-09 18:21:25.312 +04:30 [Information] Resource '"GLS.PresentationAPI"' allows all applications.
+2022-09-09 18:21:25.316 +04:30 [Information] Identity resource '"openid"' allows all applications.
+2022-09-09 18:21:25.317 +04:30 [Information] Identity resource '"profile"' allows all applications.
+2022-09-09 18:21:25.331 +04:30 [Information] Using explicitly configured authentication scheme "Identity.Application" for IdentityServer
+2022-09-09 18:21:26.574 +04:30 [Information] Now listening on: "https://localhost:5001"
+2022-09-09 18:21:26.574 +04:30 [Information] Now listening on: "http://localhost:5000"
+2022-09-09 18:21:26.575 +04:30 [Information] Application started. Press Ctrl+C to shut down.
+2022-09-09 18:21:26.575 +04:30 [Information] Hosting environment: "Development"
+2022-09-09 18:21:26.575 +04:30 [Information] Content root path: "I:\GLS\gls-assessment\src\Presentation\"
+2022-09-09 18:21:30.134 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-09-09 18:21:34.779 +04:30 [Information] No SPA development server running at https://localhost:44447 found.
+2022-09-09 18:21:35.412 +04:30 [Information] SPA proxy is not ready. Returning temporary landing page.
+2022-09-09 18:21:35.476 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html 5359.9268ms
+2022-09-09 18:21:39.659 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-09-09 18:21:40.346 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/ - -
+2022-09-09 18:21:40.347 +04:30 [Information] SPA proxy is not ready. Returning temporary landing page.
+2022-09-09 18:21:40.347 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html 688.4076ms
+2022-09-09 18:21:40.480 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/ - - - 302 0 - 133.9028ms
+2022-09-09 18:21:40.499 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/index.html?url=/api/specification.json - -
+2022-09-09 18:21:41.050 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/index.html?url=/api/specification.json - - - 200 - text/html;+charset=utf-8 549.9703ms
+2022-09-09 18:21:41.164 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-09-09 18:21:41.345 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 181.6516ms
+2022-09-09 18:22:43.453 +04:30 [Information] SPA development server running at 'https://localhost:44447'
+2022-09-09 18:23:06.031 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-09-09 18:23:06.033 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 1.4914ms
+2022-09-09 18:23:26.372 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/specification.json - -
+2022-09-09 18:23:27.251 +04:30 [Information] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed"
+2022-09-09 18:23:27.261 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/specification.json - - - 404 0 - 889.0360ms
+2022-09-09 18:23:30.233 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-09-09 18:23:30.233 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 0.7655ms
+2022-09-09 18:23:34.911 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/index.html?url=/api/specification.json - -
+2022-09-09 18:23:34.915 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/index.html?url=/api/specification.json - - - 200 - text/html;+charset=utf-8 3.8185ms
+2022-09-09 18:33:14.240 +04:30 [Information] User profile is available. Using '"C:\Users\Fateme\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-09 18:33:16.693 +04:30 [Information] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "MigrationsAssembly=GLS.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null "
+2022-09-09 18:33:18.670 +04:30 [Information] Executed DbCommand ("116"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-09-09 18:33:18.930 +04:30 [Information] Executed DbCommand ("191"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-09-09 18:33:18.970 +04:30 [Information] Executed DbCommand ("6"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-09-09 18:33:19.010 +04:30 [Information] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-09-09 18:33:19.239 +04:30 [Information] Executed DbCommand ("116"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+2022-09-09 18:33:19.299 +04:30 [Information] No migrations were applied. The database is already up to date.
+2022-09-09 18:33:20.779 +04:30 [Information] Executed DbCommand ("106"ms) [Parameters=["@__administratorRole_Name_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]
+        WHERE ([a].[Name] = @__administratorRole_Name_0) AND ([a].[Name] IS NOT NULL)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-09-09 18:33:20.856 +04:30 [Information] Executed DbCommand ("40"ms) [Parameters=["@__administrator_UserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]
+        WHERE ([a].[UserName] = @__administrator_UserName_0) AND ([a].[UserName] IS NOT NULL)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-09-09 18:33:21.717 +04:30 [Information] Starting Duende IdentityServer version "5.2.0+1c3f1fadb0fa7a4bea3f4a6f7028cbfcff3b9918" (".NET 6.0.1")
+2022-09-09 18:33:21.794 +04:30 [Warning] You do not have a valid license key for Duende IdentityServer. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please start a conversation with us: https://duendesoftware.com/contact
+2022-09-09 18:33:21.821 +04:30 [Information] Configuring local API resource '"GLS.PresentationAPI"'.
+2022-09-09 18:33:21.840 +04:30 [Information] Configuring client '"GLS.Presentation"'.
+2022-09-09 18:33:21.885 +04:30 [Information] Loading development key at '"I:\GLS\gls-assessment\src\Presentation\obj/tempkey.json"'.
+2022-09-09 18:33:22.200 +04:30 [Information] Resource '"GLS.PresentationAPI"' allows all applications.
+2022-09-09 18:33:22.208 +04:30 [Information] Identity resource '"openid"' allows all applications.
+2022-09-09 18:33:22.208 +04:30 [Information] Identity resource '"profile"' allows all applications.
+2022-09-09 18:33:22.229 +04:30 [Information] Using explicitly configured authentication scheme "Identity.Application" for IdentityServer
+2022-09-09 18:33:31.333 +04:30 [Information] Now listening on: "https://localhost:5001"
+2022-09-09 18:33:31.333 +04:30 [Information] Now listening on: "http://localhost:5000"
+2022-09-09 18:33:31.333 +04:30 [Information] Application started. Press Ctrl+C to shut down.
+2022-09-09 18:33:31.334 +04:30 [Information] Hosting environment: "Development"
+2022-09-09 18:33:31.334 +04:30 [Information] Content root path: "I:\GLS\gls-assessment\src\Presentation\"
+2022-09-09 18:33:36.799 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-09-09 18:33:41.943 +04:30 [Information] No SPA development server running at https://localhost:44447 found.
+2022-09-09 18:33:43.234 +04:30 [Information] SPA proxy is not ready. Returning temporary landing page.
+2022-09-09 18:33:43.685 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html 6912.5111ms
+2022-09-09 18:33:47.455 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/ - -
+2022-09-09 18:33:48.323 +04:30 [Information] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed"
+2022-09-09 18:33:48.357 +04:30 [Information] Executing endpoint '"Fallback {*path:nonfile}"'
+2022-09-09 18:33:48.366 +04:30 [Information] Executed endpoint '"Fallback {*path:nonfile}"'
+2022-09-09 18:33:48.391 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/ - - - 404 0 - 936.2057ms
+2022-09-09 18:33:57.007 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2022-09-09 18:33:57.538 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;+charset=utf-8 531.0918ms
+2022-09-09 18:33:57.657 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/css/reset.css - -
+2022-09-09 18:33:57.659 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/css/screen.css - -
+2022-09-09 18:33:57.660 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/object-assign-pollyfill.js - -
+2022-09-09 18:33:57.660 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/css/typography.css - -
+2022-09-09 18:33:57.671 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/jquery-1.8.0.min.js - -
+2022-09-09 18:33:57.674 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/jquery.slideto.min.js - -
+2022-09-09 18:33:57.677 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/jquery.wiggle.min.js - -
+2022-09-09 18:33:57.679 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/jquery.ba-bbq.min.js - -
+2022-09-09 18:33:57.717 +04:30 [Information] Sending file. Request path: '"/lib/jquery.ba-bbq.min.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.717 +04:30 [Information] Sending file. Request path: '"/lib/jquery.slideto.min.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.717 +04:30 [Information] Sending file. Request path: '"/css/reset.css"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.718 +04:30 [Information] Sending file. Request path: '"/lib/jquery.wiggle.min.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.717 +04:30 [Information] Sending file. Request path: '"/lib/object-assign-pollyfill.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.717 +04:30 [Information] Sending file. Request path: '"/css/typography.css"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.721 +04:30 [Information] Sending file. Request path: '"/css/screen.css"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.750 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/handlebars-4.0.5.js - -
+2022-09-09 18:33:57.750 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/lodash.min.js - -
+2022-09-09 18:33:57.751 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/highlight.9.1.0.pack.js - -
+2022-09-09 18:33:57.751 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/swagger-ui.js - -
+2022-09-09 18:33:57.750 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/backbone-min.js - -
+2022-09-09 18:33:57.752 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/highlight.9.1.0.pack_extended.js - -
+2022-09-09 18:33:57.752 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/jsoneditor.min.js - -
+2022-09-09 18:33:57.770 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/marked.js - -
+2022-09-09 18:33:57.772 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/lib/swagger-oauth.js - -
+2022-09-09 18:33:57.864 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/css/typography.css - - - 200 0 text/css 210.1057ms
+2022-09-09 18:33:57.864 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/css/reset.css - - - 200 773 text/css 206.9008ms
+2022-09-09 18:33:57.865 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/jquery.slideto.min.js - - - 200 365 application/javascript 190.8328ms
+2022-09-09 18:33:57.866 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/jquery.wiggle.min.js - - - 200 536 application/javascript 188.6458ms
+2022-09-09 18:33:57.866 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/css/screen.css - - - 200 43644 text/css 206.8443ms
+2022-09-09 18:33:57.866 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/jquery.ba-bbq.min.js - - - 200 3518 application/javascript 187.2687ms
+2022-09-09 18:33:57.866 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/object-assign-pollyfill.js - - - 200 349 application/javascript 207.0229ms
+2022-09-09 18:33:57.875 +04:30 [Information] Sending file. Request path: '"/lib/marked.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.875 +04:30 [Information] Sending file. Request path: '"/lib/backbone-min.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.875 +04:30 [Information] Sending file. Request path: '"/lib/handlebars-4.0.5.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.875 +04:30 [Information] Sending file. Request path: '"/lib/highlight.9.1.0.pack_extended.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.875 +04:30 [Information] Sending file. Request path: '"/lib/swagger-oauth.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.875 +04:30 [Information] Sending file. Request path: '"/lib/jquery-1.8.0.min.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.875 +04:30 [Information] Sending file. Request path: '"/lib/lodash.min.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.875 +04:30 [Information] Sending file. Request path: '"/lib/highlight.9.1.0.pack.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.884 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/highlight.9.1.0.pack.js - - - 200 10962 application/javascript 132.6676ms
+2022-09-09 18:33:57.884 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/marked.js - - - 200 15724 application/javascript 114.9190ms
+2022-09-09 18:33:57.885 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/lodash.min.js - - - 200 51895 application/javascript 134.4643ms
+2022-09-09 18:33:57.885 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/backbone-min.js - - - 200 19371 application/javascript 134.4658ms
+2022-09-09 18:33:57.885 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/jquery-1.8.0.min.js - - - 200 92034 application/javascript 214.1003ms
+2022-09-09 18:33:57.885 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/handlebars-4.0.5.js - - - 200 71506 application/javascript 135.0022ms
+2022-09-09 18:33:57.885 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/swagger-oauth.js - - - 200 7042 application/javascript 113.7718ms
+2022-09-09 18:33:57.885 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/highlight.9.1.0.pack_extended.js - - - 200 310 application/javascript 133.7173ms
+2022-09-09 18:33:57.885 +04:30 [Information] Sending file. Request path: '"/lib/jsoneditor.min.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:57.887 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/lib/jsoneditor.min.js - - - 200 129839 application/javascript 134.4840ms
+2022-09-09 18:33:58.150 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-09-09 18:33:58.166 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 15.5137ms
+2022-09-09 18:33:58.185 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/images/logo_small.png - -
+2022-09-09 18:33:58.217 +04:30 [Information] Sending file. Request path: '"/images/logo_small.png"'. Physical path: '"N/A"'
+2022-09-09 18:33:58.218 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/images/logo_small.png - - - 200 455 image/png 33.0347ms
+2022-09-09 18:33:58.541 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/css/print.css - -
+2022-09-09 18:33:58.553 +04:30 [Information] Sending file. Request path: '"/swagger-ui.js"'. Physical path: '"N/A"'
+2022-09-09 18:33:58.554 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/swagger-ui.js - - - 200 2729821 application/javascript 802.7717ms
+2022-09-09 18:33:58.592 +04:30 [Information] Sending file. Request path: '"/css/print.css"'. Physical path: '"N/A"'
+2022-09-09 18:33:58.593 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/css/print.css - - - 200 41666 text/css 51.3831ms
+2022-09-09 18:33:59.359 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/undefined - -
+2022-09-09 18:33:59.396 +04:30 [Information] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed"
+2022-09-09 18:33:59.397 +04:30 [Information] Executing endpoint '"Fallback {*path:nonfile}"'
+2022-09-09 18:33:59.398 +04:30 [Information] Executed endpoint '"Fallback {*path:nonfile}"'
+2022-09-09 18:33:59.399 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/undefined - - - 404 0 - 42.0627ms
+2022-09-09 18:33:59.528 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/images/favicon-32x32.png - -
+2022-09-09 18:33:59.529 +04:30 [Information] Sending file. Request path: '"/images/favicon-32x32.png"'. Physical path: '"N/A"'
+2022-09-09 18:33:59.530 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/images/favicon-32x32.png - - - 200 1141 image/png 2.4079ms
+2022-09-09 18:34:23.161 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2022-09-09 18:34:23.942 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;+charset=utf-8 781.4046ms
+2022-09-09 18:34:23.980 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-09-09 18:34:23.981 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 0.9394ms
+2022-09-09 18:34:24.421 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/undefined - -
+2022-09-09 18:34:24.437 +04:30 [Information] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed"
+2022-09-09 18:34:24.438 +04:30 [Information] Executing endpoint '"Fallback {*path:nonfile}"'
+2022-09-09 18:34:24.438 +04:30 [Information] Executed endpoint '"Fallback {*path:nonfile}"'
+2022-09-09 18:34:24.438 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/undefined - - - 404 0 - 16.9151ms
+2022-09-09 18:34:31.048 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/index.html - -
+2022-09-09 18:34:31.051 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/index.html - - - 200 - text/html;+charset=utf-8 2.8986ms
+2022-09-09 18:36:14.178 +04:30 [Information] User profile is available. Using '"C:\Users\Fateme\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-09 18:36:16.890 +04:30 [Information] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "MigrationsAssembly=GLS.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null "
+2022-09-09 18:36:18.336 +04:30 [Information] Executed DbCommand ("87"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-09-09 18:36:18.449 +04:30 [Information] Executed DbCommand ("80"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-09-09 18:36:18.468 +04:30 [Information] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-09-09 18:36:18.495 +04:30 [Information] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-09-09 18:36:18.540 +04:30 [Information] Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+2022-09-09 18:36:18.589 +04:30 [Information] No migrations were applied. The database is already up to date.
+2022-09-09 18:36:19.409 +04:30 [Information] Executed DbCommand ("66"ms) [Parameters=["@__administratorRole_Name_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]
+        WHERE ([a].[Name] = @__administratorRole_Name_0) AND ([a].[Name] IS NOT NULL)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-09-09 18:36:19.435 +04:30 [Information] Executed DbCommand ("4"ms) [Parameters=["@__administrator_UserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]
+        WHERE ([a].[UserName] = @__administrator_UserName_0) AND ([a].[UserName] IS NOT NULL)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-09-09 18:36:20.006 +04:30 [Information] Starting Duende IdentityServer version "5.2.0+1c3f1fadb0fa7a4bea3f4a6f7028cbfcff3b9918" (".NET 6.0.1")
+2022-09-09 18:36:20.126 +04:30 [Warning] You do not have a valid license key for Duende IdentityServer. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please start a conversation with us: https://duendesoftware.com/contact
+2022-09-09 18:36:20.155 +04:30 [Information] Configuring local API resource '"GLS.PresentationAPI"'.
+2022-09-09 18:36:20.169 +04:30 [Information] Configuring client '"GLS.Presentation"'.
+2022-09-09 18:36:20.206 +04:30 [Information] Loading development key at '"I:\GLS\gls-assessment\src\Presentation\obj/tempkey.json"'.
+2022-09-09 18:36:20.509 +04:30 [Information] Resource '"GLS.PresentationAPI"' allows all applications.
+2022-09-09 18:36:20.515 +04:30 [Information] Identity resource '"openid"' allows all applications.
+2022-09-09 18:36:20.515 +04:30 [Information] Identity resource '"profile"' allows all applications.
+2022-09-09 18:36:20.537 +04:30 [Information] Using explicitly configured authentication scheme "Identity.Application" for IdentityServer
+2022-09-09 18:36:21.937 +04:30 [Information] Now listening on: "https://localhost:5001"
+2022-09-09 18:36:21.937 +04:30 [Information] Now listening on: "http://localhost:5000"
+2022-09-09 18:36:21.943 +04:30 [Information] Application started. Press Ctrl+C to shut down.
+2022-09-09 18:36:21.943 +04:30 [Information] Hosting environment: "Development"
+2022-09-09 18:36:21.944 +04:30 [Information] Content root path: "I:\GLS\gls-assessment\src\Presentation\"
+2022-09-09 18:36:24.822 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-09-09 18:36:28.558 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/ - -
+2022-09-09 18:36:28.742 +04:30 [Information] No SPA development server running at https://localhost:44447 found.
+2022-09-09 18:36:28.909 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/ - - - 302 0 - 349.3824ms
+2022-09-09 18:36:28.964 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/index.html - -
+2022-09-09 18:36:29.482 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/index.html - - - 200 - text/html;+charset=utf-8 518.2994ms
+2022-09-09 18:36:29.808 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-09-09 18:36:29.821 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 13.8142ms
+2022-09-09 18:36:30.782 +04:30 [Information] SPA proxy is not ready. Returning temporary landing page.
+2022-09-09 18:36:30.787 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html 5978.3962ms
+2022-09-09 18:36:31.019 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-09-09 18:36:33.340 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;+charset=utf-8 2324.1077ms
+2022-09-09 18:36:50.577 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-09-09 18:36:50.582 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 200 - application/json;+charset=utf-8 5.4217ms
+2022-09-09 19:30:59.726 +04:30 [Information] User profile is available. Using '"C:\Users\Fateme\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2022-09-09 19:31:02.934 +04:30 [Information] Entity Framework Core "6.0.5" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer":"6.0.5"' with options: "MigrationsAssembly=GLS.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null "
+2022-09-09 19:31:04.851 +04:30 [Information] Executed DbCommand ("118"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-09-09 19:31:05.045 +04:30 [Information] Executed DbCommand ("138"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-09-09 19:31:05.076 +04:30 [Information] Executed DbCommand ("3"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2022-09-09 19:31:05.082 +04:30 [Information] Executed DbCommand ("4"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2022-09-09 19:31:05.146 +04:30 [Information] Executed DbCommand ("19"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+2022-09-09 19:31:05.216 +04:30 [Information] No migrations were applied. The database is already up to date.
+2022-09-09 19:31:06.214 +04:30 [Information] Executed DbCommand ("84"ms) [Parameters=["@__administratorRole_Name_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]
+        WHERE ([a].[Name] = @__administratorRole_Name_0) AND ([a].[Name] IS NOT NULL)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-09-09 19:31:06.252 +04:30 [Information] Executed DbCommand ("23"ms) [Parameters=["@__administrator_UserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN NOT EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]
+        WHERE ([a].[UserName] = @__administrator_UserName_0) AND ([a].[UserName] IS NOT NULL)) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2022-09-09 19:31:06.607 +04:30 [Information] Starting Duende IdentityServer version "5.2.0+1c3f1fadb0fa7a4bea3f4a6f7028cbfcff3b9918" (".NET 6.0.1")
+2022-09-09 19:31:06.725 +04:30 [Warning] You do not have a valid license key for Duende IdentityServer. This is allowed for development and testing scenarios. If you are running in production you are required to have a licensed version. Please start a conversation with us: https://duendesoftware.com/contact
+2022-09-09 19:31:06.781 +04:30 [Information] Configuring local API resource '"GLS.PresentationAPI"'.
+2022-09-09 19:31:06.806 +04:30 [Information] Configuring client '"GLS.Presentation"'.
+2022-09-09 19:31:06.843 +04:30 [Information] Loading development key at '"I:\GLS\gls-assessment\src\Presentation\obj/tempkey.json"'.
+2022-09-09 19:31:07.122 +04:30 [Information] Resource '"GLS.PresentationAPI"' allows all applications.
+2022-09-09 19:31:07.127 +04:30 [Information] Identity resource '"openid"' allows all applications.
+2022-09-09 19:31:07.127 +04:30 [Information] Identity resource '"profile"' allows all applications.
+2022-09-09 19:31:07.177 +04:30 [Information] Using explicitly configured authentication scheme "Identity.Application" for IdentityServer
+2022-09-09 19:31:08.376 +04:30 [Information] Now listening on: "https://localhost:5001"
+2022-09-09 19:31:08.376 +04:30 [Information] Now listening on: "http://localhost:5000"
+2022-09-09 19:31:08.377 +04:30 [Information] Application started. Press Ctrl+C to shut down.
+2022-09-09 19:31:08.377 +04:30 [Information] Hosting environment: "Development"
+2022-09-09 19:31:08.377 +04:30 [Information] Content root path: "I:\GLS\gls-assessment\src\Presentation\"
+2022-09-09 19:31:13.015 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/ - -
+2022-09-09 19:31:16.669 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/ - -
+2022-09-09 19:31:16.781 +04:30 [Information] No SPA development server running at https://localhost:44447 found.
+2022-09-09 19:31:16.898 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/ - - - 302 0 - 227.8004ms
+2022-09-09 19:31:17.012 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/index.html - -
+2022-09-09 19:31:17.673 +04:30 [Information] SPA proxy is not ready. Returning temporary landing page.
+2022-09-09 19:31:17.679 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/ - - - 200 - text/html 4678.1509ms
+2022-09-09 19:31:18.019 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/index.html - - - 200 - text/html;+charset=utf-8 1006.0435ms
+2022-09-09 19:31:18.439 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-09-09 19:31:18.770 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 330.7142ms
+2022-09-09 19:31:19.503 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-09-09 19:31:20.816 +04:30 [Information] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed"
+2022-09-09 19:31:20.846 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 404 0 - 1342.9805ms
+2022-09-09 19:31:35.068 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/api/index.html - -
+2022-09-09 19:31:35.124 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/api/index.html - - - 200 - text/html;+charset=utf-8 55.8579ms
+2022-09-09 19:31:35.717 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - -
+2022-09-09 19:31:35.718 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/_framework/aspnetcore-browser-refresh.js - - - 200 11946 application/javascript;+charset=utf-8 0.7261ms
+2022-09-09 19:31:36.452 +04:30 [Information] Request starting HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - -
+2022-09-09 19:31:36.482 +04:30 [Information] "Identity.Application" was not authenticated. Failure message: "Unprotect ticket failed"
+2022-09-09 19:31:36.486 +04:30 [Information] Request finished HTTP/2 GET https://localhost:5001/swagger/v1/swagger.json - - - 404 0 - 33.3478ms
